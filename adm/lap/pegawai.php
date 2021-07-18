@@ -75,6 +75,31 @@ $limit = 10;
 
 
 
+
+
+//isi *START
+ob_start();
+
+
+
+//jml notif
+$qyuk = mysqli_query($koneksi, "SELECT * FROM user_history ".
+									"WHERE dibaca = 'false'");
+$jml_notif = mysqli_num_rows($qyuk);
+
+echo $jml_notif;
+
+//isi
+$i_loker = ob_get_contents();
+ob_end_clean();
+
+
+
+
+
+
+
+
 //PROSES ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //nek batal
 if ($_POST['btnBTL'])
