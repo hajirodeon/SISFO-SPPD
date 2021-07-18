@@ -123,14 +123,16 @@ $pagelist = $p->pageList($_GET['page'], $pages, $target);
 $data = mysqli_fetch_array($result);
 
 
-echo '<div class="table-responsive">          
+echo '<a href="tahun_xls.php" target="_blank" title="Print Rekap XLS" class="btn btn-danger"><img src="'.$sumber.'/img/xls.gif" width="16" height="16" border="0">REKAP XLS</a>
+		
+<div class="table-responsive">          
 <table class="table" border="1">
 <thead>
 
 	<tr valign="top" bgcolor="'.$warnaheader.'">
 	<th><strong><font color="'.$warnatext.'">NAMA</font></strong></th>';
 	
-	for ($k=$tahun-5;$k<=$tahun;$k++)
+	for ($k=$tahun-4;$k<=$tahun;$k++)
 		{
 		echo '<td align="center"><strong><font color="'.$warnatext.'">'.$k.'</font></strong></td>';
 		}
@@ -172,7 +174,7 @@ if ($count != 0)
 		echo '<td>'.$i_nama.'</td>';
 		
 
-		for ($k=$tahun-5;$k<=$tahun;$k++)
+		for ($k=$tahun-4;$k<=$tahun;$k++)
 			{
 			$kk = "0$k";
 			
@@ -208,7 +210,7 @@ echo '</tbody>
 	<th><strong><font color="'.$warnatext.'">TOTAL</font></strong></th>';
 	
 	
-	for ($k=$tahun-5;$k<=$tahun;$k++)
+	for ($k=$tahun-4;$k<=$tahun;$k++)
 		{
 		//hitung totalnya
 		$qyuk = mysqli_query($koneksi, "SELECT SUM(total) AS total ".

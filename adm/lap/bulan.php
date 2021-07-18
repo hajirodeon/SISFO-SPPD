@@ -153,12 +153,15 @@ else
 	$data = mysqli_fetch_array($result);
 
 
-	echo '<div class="table-responsive">          
+	echo '<a href="bulan_xls.php?tahunnya='.$tahunnya.'" target="_blank" title="Print Rekap XLS" class="btn btn-danger"><img src="'.$sumber.'/img/xls.gif" width="16" height="16" border="0">REKAP XLS</a>
+		
+	
+	<div class="table-responsive">          
 	<table class="table" border="1">
 	<thead>
 	
 		<tr valign="top" bgcolor="'.$warnaheader.'">
-		<th><strong><font color="'.$warnatext.'">NAMA</font></strong></th>';
+		<th><strong><font color="'.$warnatext.'">NAMA BAGIAN</font></strong></th>';
 		
 		for ($k=1;$k<=12;$k++)
 			{

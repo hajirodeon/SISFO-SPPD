@@ -302,7 +302,10 @@ require("../../inc/js/swap.js");
 		$data = mysqli_fetch_array($result);
 
 
-		echo '<div class="table-responsive">          
+		echo '<a href="jalan_xls.php" target="_blank" title="Print Rekap XLS" class="btn btn-danger"><img src="'.$sumber.'/img/xls.gif" width="16" height="16" border="0">REKAP XLS</a>
+		
+		
+		<div class="table-responsive">          
 		<table class="table" border="1">
 		<thead>
 		
@@ -315,12 +318,6 @@ require("../../inc/js/swap.js");
 			</th>
 			<th>
 				<strong><font color="'.$warnatext.'">NAMA PEGAWAI</font></strong>
-			</th>
-			<th>
-				<strong><font color="'.$warnatext.'">GOLONGAN</font></strong>
-			</th>
-			<th>
-				<strong><font color="'.$warnatext.'">BAGIAN</font></strong>
 			</th>
 			<th>
 				<strong><font color="'.$warnatext.'">NO.SPPD</font></strong>
@@ -408,58 +405,21 @@ require("../../inc/js/swap.js");
 				//wong e
 				$qyuk = mysqli_query($koneksi, "SELECT * FROM t_spt_pegawai ".
 													"WHERE spt_kd = '$i_spt_kd' ".
-													"ORDER BY peg_nama ASC");
+													"ORDER BY round(peg_nourut) ASC");
 				$ryuk = mysqli_fetch_assoc($qyuk);
 				
 				do
 					{
 					//nilai
 					$e_peg_nama = balikin($ryuk['peg_nama']);
-					
-					echo "$e_peg_nama<br><br>";
-					}
-				while ($ryuk = mysqli_fetch_assoc($qyuk));
-				
-				echo '</td>
-				<td>';
-				
-				
-				//wong e
-				$qyuk = mysqli_query($koneksi, "SELECT * FROM t_spt_pegawai ".
-													"WHERE spt_kd = '$i_spt_kd' ".
-													"ORDER BY peg_golongan ASC");
-				$ryuk = mysqli_fetch_assoc($qyuk);
-				
-				do
-					{
-					//nilai
 					$e_peg_gol = balikin($ryuk['peg_golongan']);
-					
-					echo "$e_peg_gol<br><br>";
-					}
-				while ($ryuk = mysqli_fetch_assoc($qyuk));
-				
-				
-				echo '</td>
-				<td>';
-				
-				
-				//wong e
-				$qyuk = mysqli_query($koneksi, "SELECT * FROM t_spt_pegawai ".
-													"WHERE spt_kd = '$i_spt_kd' ".
-													"ORDER BY peg_bag_nama ASC");
-				$ryuk = mysqli_fetch_assoc($qyuk);
-				
-				do
-					{
-					//nilai
 					$e_peg_bag = balikin($ryuk['peg_bag_nama']);
 					
-					echo "$e_peg_bag<br><br>";
+					echo "$e_peg_nama<br>
+					$e_peg_gol<br>
+					$e_peg_bag<br><br>";
 					}
 				while ($ryuk = mysqli_fetch_assoc($qyuk));
-				
-				
 				
 				echo '</td>
 				<td>'.$i_spt_no.'</td>
@@ -483,8 +443,6 @@ require("../../inc/js/swap.js");
 			<tfoot>
 		
 			<tr valign="top" bgcolor="'.$warnaheader.'">
-			<th><strong><font color="'.$warnatext.'"></font></strong></th>
-			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>

@@ -356,7 +356,10 @@ require("../../inc/js/swap.js");
 		<input name="btnCARI" type="submit" value="CARI" class="btn btn-danger">
 		<input name="btnBTL" type="submit" value="RESET" class="btn btn-info">
 		</p>
+
+		<a href="gol_xls.php" target="_blank" title="Print Rekap XLS" class="btn btn-danger"><img src="'.$sumber.'/img/xls.gif" width="16" height="16" border="0">REKAP XLS</a>
 		
+				
 		<div class="table-responsive">          
 		<table class="table" border="1">
 		<thead>
@@ -375,6 +378,11 @@ require("../../inc/js/swap.js");
 			<th>
 				<a href="'.$filenya.'?golkd='.$golkd.'&golnama='.$golnama.'&kunci='.$kunci.'&sort=bagian&orderby='.$orderby.'">
 				<strong><font color="'.$warnatext.'">BAGIAN</font></strong>
+				</a>
+			</th>
+			<th>
+				<a href="'.$filenya.'?golkd='.$golkd.'&golnama='.$golnama.'&kunci='.$kunci.'&sort=jabatan&orderby='.$orderby.'">
+				<strong><font color="'.$warnatext.'">JABATAN</font></strong>
 				</a>
 			</th>
 			<th>
@@ -488,6 +496,7 @@ require("../../inc/js/swap.js");
 				'.$e_nama.' '.$i_gelar_belakang.'
 				</td>
 				<td>'.$yuk_bag_nama.'</td>
+				<td>'.$i_jabatan_nama.'</td>
 				<td>'.$i_spt_no.'</td>
 				<td>'.$yuk2_tgl_dari.'</td>
 				<td>'.$yuk2_tgl_sampai.'</td>
@@ -547,6 +556,7 @@ require("../../inc/js/swap.js");
 			<tfoot>
 		
 			<tr valign="top" bgcolor="'.$warnaheader.'">
+			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>

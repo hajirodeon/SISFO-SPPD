@@ -153,7 +153,10 @@ else
 	$data = mysqli_fetch_array($result);
 
 
-	echo '<div class="table-responsive">          
+	echo '<a href="gol_bulan_xls.php?tahunnya='.$tahunnya.'" target="_blank" title="Print Rekap XLS" class="btn btn-danger"><img src="'.$sumber.'/img/xls.gif" width="16" height="16" border="0">REKAP XLS</a>
+		
+		
+	<div class="table-responsive">          
 	<table class="table" border="1">
 	<thead>
 	
@@ -253,7 +256,7 @@ else
 			//hitung totalnya
 			$qyuk = mysqli_query($koneksi, "SELECT SUM(total_semuanya) AS total ".
 												"FROM t_spt_pegawai ".
-												"WHERE peg_bag_nama <> '' ".
+												"WHERE peg_golongan <> '' ".
 												"AND (round(DATE_FORMAT(spt_tgl, '%m')) = '$k' ".
 												"OR round(DATE_FORMAT(spt_tgl, '%m')) = '$kk') ".
 												"AND round(DATE_FORMAT(spt_tgl, '%Y')) = '$tahunnya'");
