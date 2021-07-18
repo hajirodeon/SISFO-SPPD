@@ -1,0 +1,846 @@
+
+/*===DATA TABLE===*/
+/*
+ *  File:         demo_table.css
+ *  CVS:          $Id$
+ *  Description:  CSS descriptions for DataTables demo pages
+ *  Author:       Allan Jardine
+ *  Created:      Tue May 12 06:47:22 BST 2009
+ *  Modified:     $Date$ by $Author$
+ *  Language:     CSS
+ *  Project:      DataTables
+ *
+ *  Copyright 2009 Allan Jardine. All Rights Reserved.
+ *
+ * ***************************************************************************
+ * DESCRIPTION
+ *
+ * The styles given here are suitable for the demos that are used with the standard DataTables
+ * distribution (see www.datatables.net). You will most likely wish to modify these styles to
+ * meet the layout requirements of your site.
+ *
+ * Common issues:
+ *   'full_numbers' pagination - I use an extra selector on the body tag to ensure that there is
+ *     no conflict between the two pagination types. If you want to use full_numbers pagination
+ *     ensure that you either have "example_alt_pagination" as a body class name, or better yet,
+ *     modify that selector.
+ *   Note that the path used for Images is relative. All images are by default located in
+ *     ../images/ - relative to this CSS file.
+ */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables features
+ */
+
+.dataTables_wrapper {
+	position: relative;
+	clear: both;
+	zoom: 1; /* Feeling sorry for IE */
+	border-top:#ddd 1px solid;
+	border-bottom:#ddd 1px solid;
+	-moz-box-shadow: 0 0 3px #ddd;
+	-webkit-box-shadow: 0 0 3px #ddd;
+	box-shadow: 0 0 3px #ddd;
+}
+.dataTables_processing {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 250px;
+	height: 30px;
+	margin-left: -125px;
+	margin-top: -15px;
+	padding: 14px 0 2px 0;
+	border: 1px solid #ddd;
+	text-align: center;
+	color: #999;
+	font-size: 14px;
+	background-color: white;
+}
+.dataTables_length {
+	width: 40%;
+	float: right;
+	text-align:right;
+}
+.lengthLabel {
+	display:inline-block;
+	float: right;
+	padding-top:7px;
+	padding-right:10px;
+}
+.lenghtMenu {
+	display:inline-block;
+	float: right;
+}
+.dataTables_filter {
+	width: 40%;
+	float: left;
+	text-align: left;
+}
+.dataTables_filter input {
+	border: 1px solid #D8D8D8;
+	color: #444444;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 5px 2px 5px 25px;
+	background:#fff url(../images/sprite-icons/icons-a.png) no-repeat 3px -898px;
+	transition: all 0.25s ease-in-out;
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+}
+.dataTables_filter input:focus {
+	box-shadow: 0 0 4px #bbb;
+	-webkit-box-shadow: 0 0 4px #bbb;
+	-moz-box-shadow: 0 0 4px #bbb;
+	border: 1px solid #bbb;
+}
+.dataTables_info {
+	width: 40%;
+	float: left;
+}
+.dataTables_paginate {
+	float: right;
+	text-align: right;
+}
+/* Pagination nested */
+.paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
+	height: 19px;
+	float: left;
+	cursor: pointer;
+ *cursor: hand;
+	color: #111 !important;
+}
+.paginate_disabled_previous:hover, .paginate_enabled_previous:hover, .paginate_disabled_next:hover, .paginate_enabled_next:hover {
+	text-decoration: none !important;
+}
+.paginate_disabled_previous:active, .paginate_enabled_previous:active, .paginate_disabled_next:active, .paginate_enabled_next:active {
+	outline: none;
+}
+.paginate_disabled_previous, .paginate_disabled_next {
+	color: #666 !important;
+}
+.paginate_disabled_previous, .paginate_enabled_previous {
+	padding-left: 23px;
+}
+.paginate_disabled_next, .paginate_enabled_next {
+	padding-right: 23px;
+	margin-left: 10px;
+}
+.paginate_disabled_previous {
+	background: url('../images/tbl-img/back_disabled.png') no-repeat top left;
+}
+.paginate_enabled_previous {
+	background: url('../images/tbl-img/back_enabled.png') no-repeat top left;
+}
+.paginate_enabled_previous:hover {
+	background: url('../images/tbl-img/back_enabled_hover.png') no-repeat top left;
+}
+.paginate_disabled_next {
+	background: url('../images/tbl-img/forward_disabled.png') no-repeat top right;
+}
+.paginate_enabled_next {
+	background: url('../images/tbl-img/forward_enabled.png') no-repeat top right;
+}
+.paginate_enabled_next:hover {
+	background: url('../images/tbl-img/forward_enabled_hover.png') no-repeat top right;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables display
+ */
+table.display {
+	margin: 0 auto;
+	clear: both;
+	width: 100%;/* Note Firefox 3.5 and before have a bug with border-collapse
+	 * ( https://bugzilla.mozilla.org/show%5Fbug.cgi?id=155955 ) 
+	 * border-spacing: 0; is one possible option. Conditional-css.com is
+	 * useful for this kind of thing
+	 *
+	 * Further note IE 6/7 has problems when calculating widths with border width.
+	 * It subtracts one px relative to the other browsers from the first column, and
+	 * adds one to the end...
+	 *
+	 * If you want that effect I'd suggest setting a border-top/left on th/td's and 
+	 * then filling in the gaps with other borders.
+	 */
+}
+table.display thead {
+	background:url(../images/layout-sprite.png) repeat-x 0 -751px;
+}
+table.display thead th {
+	padding: 10px 10px 10px 10px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+	cursor: pointer;
+ * cursor: hand;
+}
+table.display tfoot {
+	background:url(../images/layout-sprite.png) repeat-x 0 -751px;
+}
+table.display tfoot th {
+	padding: 10px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+}
+table.display tr.heading2 td {
+	border-bottom: 1px solid #aaa;
+}
+table.display td {
+	padding: 8px 10px;
+	vertical-align:middle;
+}
+table.display td.center {
+	text-align: center;
+}
+table.display td input {
+	height:16px !important;
+	border:red 1px solid;
+	padding:3px;
+}
+.tbl_length {
+	width:60px;
+	float: left;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables sorting
+ */
+
+.sorting_asc {
+	background: url('../images/tbl-img/sort_asc.png') no-repeat center right;
+}
+.sorting_desc {
+	background: url('../images/tbl-img/sort_desc.png') no-repeat center right;
+}
+.sorting {
+	background: url('../images/tbl-img/sort_both.png') no-repeat center right;
+}
+.sorting_asc_disabled {
+	background: url('../images/tbl-img/sort_asc_disabled.png') no-repeat center right;
+}
+.sorting_desc_disabled {
+	background: url('../images/tbl-img/sort_desc_disabled.png') no-repeat center right;
+}
+th:active {
+	outline: none;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables row classes
+ */
+table.display tr.odd.gradeA {
+	background-color: #e5eff0;
+}
+table.display tr.even.gradeA {
+	background-color: #f7f7f7;
+}
+table.display tr.odd.gradeC {
+	background-color: #ddddff;
+}
+table.display tr.even.gradeC {
+	background-color: #eeeeff;
+}
+table.display tr.odd.gradeX {
+	background-color: #ffdddd;
+}
+table.display tr.even.gradeX {
+	background-color: #ffeeee;
+}
+table.display tr.odd.gradeU {
+	background-color: #ddd;
+}
+table.display tr.even.gradeU {
+	background-color: #eee;
+}
+tr.odd {
+	background-color: #E2E4FF;
+}
+tr.even {
+	background-color: white;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Misc
+ */
+.dataTables_scroll {
+	clear: both;
+}
+.dataTables_scrollBody {
+ *margin-top: -1px;
+}
+.top, .bottom {
+	padding: 15px;
+	background-color: #F5F5F5;
+	border: 1px solid #CCCCCC;
+}
+.top .dataTables_info {
+	float: none;
+}
+.clear {
+	clear: both;
+}
+.dataTables_empty {
+	text-align: center;
+}
+tfoot input {
+	margin: 0.5em 0;
+	width: 100%;
+	color: #444;
+}
+tfoot input.search_init {
+	color: #999;
+}
+td.group {
+	background-color: #d1cfd0;
+	border-bottom: 2px solid #A19B9E;
+	border-top: 2px solid #A19B9E;
+}
+td.details {
+	background-color: #e1f0f8;
+	border: 2px solid #b0cedd;
+}
+.example_alt_pagination div.dataTables_info {
+	width: 40%;
+}
+.paging_full_numbers {
+	width: 400px;
+	height: 22px;
+	line-height: 22px;
+}
+.paging_full_numbers a:active {
+	outline: none
+}
+.paging_full_numbers a:hover {
+	text-decoration: none;
+}
+.paging_full_numbers a.paginate_button, .paging_full_numbers a.paginate_active {
+	border-left: 1px solid #08598d;
+	border-bottom: 1px solid #08598d;
+	border-top: 1px solid #08598d;
+	/*	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+*/	padding: 2px 5px;
+	margin: 0;
+	cursor: pointer;
+ *cursor: hand;
+}
+.paging_full_numbers a.paginate_button {
+	background:url(../images/button-sprite.png) repeat-x 0 -280px;
+	color: #fff !important;
+	text-shadow:1px 1px 0px #333;
+}
+.paging_full_numbers .last {
+	border-right: 1px solid #08598d !important;
+}
+.paginate_button_disabled a {
+}
+.paging_full_numbers a.paginate_button:hover {
+	background:url(../images/button-sprite.png) repeat-x 0 -304px;
+	-moz-box-shadow: inset 0 0 3px #9ecef6;
+	-webkit-box-shadow: inset 0 0 3px #9ecef6;
+	box-shadow: inner 0 0 3px #9ecef6;
+	text-decoration: none !important;
+}
+.paging_full_numbers a.paginate_active {
+	background-color: #fff;
+	-moz-box-shadow: inset 0 0 3px #aaa;
+	-webkit-box-shadow: inset 0 0 3px #aaa;
+	box-shadow: inner 0 0 3px #aaa;
+	color: #333 !important;
+}
+table.display tr.even.row_selected td {
+	background-color: #B0BED9;
+}
+table.display tr.odd.row_selected td {
+	background-color: #9FAFD1;
+}
+.paging_full_numbers a.paginate_button_disabled {
+	background:url(../images/button-sprite.png) repeat-x 0 -32px !important;
+	color:#666 !important;
+	text-shadow:none;
+	border-bottom:#666 1px solid;
+	border-top:#666 1px solid;
+	border-left:#666 1px solid;
+}
+/*
+ * Sorting classes for columns
+ */
+/* For the standard odd/even */
+tr.odd td.sorting_1 {
+	background-color: #D3D6FF;
+}
+tr.odd td.sorting_2 {
+	background-color: #DADCFF;
+}
+tr.odd td.sorting_3 {
+	background-color: #E0E2FF;
+}
+tr.even td.sorting_1 {
+	background-color: #EAEBFF;
+}
+tr.even td.sorting_2 {
+	background-color: #F2F3FF;
+}
+tr.even td.sorting_3 {
+	background-color: #F9F9FF;
+}
+/* For the Conditional-CSS grading rows */
+/*
+ 	Colour calculations (based off the main row colours)
+  Level 1:
+		dd > c4
+		ee > d5
+	Level 2:
+	  dd > d1
+	  ee > e2
+ */
+tr.odd.gradeA td.sorting_1 {
+	background-color: #cbe4ee;
+}
+tr.odd.gradeA td.sorting_2 {
+	background-color: #d1ffd1;
+}
+tr.odd.gradeA td.sorting_3 {
+	background-color: #d1ffd1;
+}
+tr.even.gradeA td.sorting_1 {
+	background-color: #eaf0f2;
+}
+tr.even.gradeA td.sorting_2 {
+	background-color: #e2ffe2;
+}
+tr.even.gradeA td.sorting_3 {
+	background-color: #e2ffe2;
+}
+tr.odd.gradeC td.sorting_1 {
+	background-color: #c4c4ff;
+}
+tr.odd.gradeC td.sorting_2 {
+	background-color: #d1d1ff;
+}
+tr.odd.gradeC td.sorting_3 {
+	background-color: #d1d1ff;
+}
+tr.even.gradeC td.sorting_1 {
+	background-color: #d5d5ff;
+}
+tr.even.gradeC td.sorting_2 {
+	background-color: #e2e2ff;
+}
+tr.even.gradeC td.sorting_3 {
+	background-color: #e2e2ff;
+}
+tr.odd.gradeX td.sorting_1 {
+	background-color: #ffc4c4;
+}
+tr.odd.gradeX td.sorting_2 {
+	background-color: #ffd1d1;
+}
+tr.odd.gradeX td.sorting_3 {
+	background-color: #ffd1d1;
+}
+tr.even.gradeX td.sorting_1 {
+	background-color: #ffd5d5;
+}
+tr.even.gradeX td.sorting_2 {
+	background-color: #ffe2e2;
+}
+tr.even.gradeX td.sorting_3 {
+	background-color: #ffe2e2;
+}
+tr.odd.gradeU td.sorting_1 {
+	background-color: #c4c4c4;
+}
+tr.odd.gradeU td.sorting_2 {
+	background-color: #d1d1d1;
+}
+tr.odd.gradeU td.sorting_3 {
+	background-color: #d1d1d1;
+}
+tr.even.gradeU td.sorting_1 {
+	background-color: #d5d5d5;
+}
+tr.even.gradeU td.sorting_2 {
+	background-color: #e2e2e2;
+}
+tr.even.gradeU td.sorting_3 {
+	background-color: #e2e2e2;
+}
+/*
+ * Row highlighting example
+ */
+.ex_highlight #example tbody tr.even:hover, #example tbody tr.even td.highlighted {
+	background-color: #ECFFB3;
+}
+.ex_highlight #example tbody tr.odd:hover, #example tbody tr.odd td.highlighted {
+	background-color: #E6FF99;
+}
+.ex_highlight_row #example tr.even:hover {
+	background-color: #ECFFB3;
+}
+.ex_highlight_row #example tr.even:hover td.sorting_1 {
+	background-color: #DDFF75;
+}
+.ex_highlight_row #example tr.even:hover td.sorting_2 {
+	background-color: #E7FF9E;
+}
+.ex_highlight_row #example tr.even:hover td.sorting_3 {
+	background-color: #E2FF89;
+}
+.ex_highlight_row #example tr.odd:hover {
+	background-color: #E6FF99;
+}
+.ex_highlight_row #example tr.odd:hover td.sorting_1 {
+	background-color: #D6FF5C;
+}
+.ex_highlight_row #example tr.odd:hover td.sorting_2 {
+	background-color: #E0FF84;
+}
+.ex_highlight_row #example tr.odd:hover td.sorting_3 {
+	background-color: #DBFF70;
+}
+/*
+ * KeyTable
+ */
+table.KeyTable td {
+	border: 3px solid transparent;
+}
+table.KeyTable td.focus {
+	border: 3px solid #3366FF;
+}
+table.display tr.gradeA {
+	background-color: #eeffee;
+}
+table.display tr.gradeC {
+	background-color: #ddddff;
+}
+table.display tr.gradeX {
+	background-color: #ffdddd;
+}
+table.display tr.gradeU {
+	background-color: #ddd;
+}
+div.box {
+	height: 100px;
+	padding: 10px;
+	overflow: auto;
+	border: 1px solid #8080FF;
+	background-color: #E5E5FF;
+}
+/*===DATA TABLE CUSTOM===*/
+.data_editable {
+	margin:15px;
+	background:#fff;
+}
+.data_editable tr td, .data_editable tr th, .data_tbl_search tr td, .data_tbl_search tr th, #action_tbl tr td, #action_tbl tr th {
+	border-right:#ccc 1px solid;
+}
+.data_editable tr td:last-child, .data_editable tr th:last-child, .data_tbl_search tr td:last-child, .data_tbl_search tr th:last-child, #action_tbl tr td:last-child, #action_tbl tr th:last-child, {
+border-right:0px;
+}
+.table_top {
+	padding:15px;
+	background:url(../images/layout-sprite.png) repeat-x 0 -751px;
+}
+.table_bottom {
+	padding:15px;
+	background:url(../images/layout-sprite.png) repeat-x 0 -579px;
+}
+
+
+/*
+ * File:        TableTools.css
+ * Description: Styles for TableTools 2
+ * Author:      Allan Jardine (www.sprymedia.co.uk)
+ * Language:    Javascript
+ * License:     LGPL / 3 point BSD
+ * Project:     DataTables
+ * 
+ * Copyright 2010 Allan Jardine, all rights reserved.
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ * CSS name space:
+ *   DTTT                  DataTables TableTools
+ *
+ * Colour dictionary:
+ *   Button border         #d0d0d0
+ *   Button border hover   #999999
+ *   Hover background      #f0f0f0
+ *   Action blue           #4b66d9
+ *
+ * Style sheet provides:
+ *   CONTAINER             TableTools container element and styles applying to all components
+ *   BUTTON_STYLES         Action specific button styles
+ *   SELECTING             Row selection styles
+ *   COLLECTIONS           Drop down list (collection) styles
+ *   PRINTING              Print display styles
+ *   MISC                  Minor misc styles
+ */
+
+
+/*
+ * CONTAINER
+ * TableTools container element and styles applying to all components
+ */
+ .tbl_tools {
+	border-top:#CCC 1px solid;
+}
+div.DTTT_container {
+	position: relative;
+	float: left;
+	margin: 15px;
+}
+button.DTTT_button {
+	position: relative;
+	float: left;
+	height: 30px;
+	margin-right: 5px;
+	padding: 3px 10px;
+	border: 1px solid #d0d0d0;
+	background-color: #fff;
+	cursor: pointer;
+ *cursor: hand;
+	font-size:11px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+}
+ button.DTTT_button::-moz-focus-inner {
+ border: none !important;
+ padding: 0;
+}
+/*
+ * BUTTON_STYLES
+ * Action specific button styles
+ */
+
+button.DTTT_button_csv {
+	padding-right: 30px;
+	background:#eee url(../images/table-tools/csv.png) no-repeat center right;
+}
+button.DTTT_button_csv_hover {
+	padding-right: 30px;
+	border: 1px solid #ccc;
+	background: url(../images/table-tools/csv_hover.png) no-repeat center right;
+}
+button.DTTT_button_xls {
+	padding-right: 30px;
+	background:#eee url(../images/table-tools/xls.png) no-repeat center right;
+}
+button.DTTT_button_xls_hover {
+	padding-right: 30px;
+	border: 1px solid #ccc;
+	background: url(../images/table-tools/xls_hover.png) no-repeat center right;
+}
+button.DTTT_button_copy {
+	padding-right: 30px;
+	background:#eee url(../images/table-tools/copy.png) no-repeat center right;
+}
+button.DTTT_button_copy_hover {
+	padding-right: 30px;
+	border: 1px solid #ccc;
+	background: url(../images/table-tools/copy_hover.png) no-repeat center right;
+}
+button.DTTT_button_pdf {
+	padding-right: 30px;
+	background:#eee url(../images/table-tools/pdf.png) no-repeat center right;
+}
+button.DTTT_button_pdf_hover {
+	padding-right: 30px;
+	border: 1px solid #ccc;
+	background: url(../images/table-tools/pdf_hover.png) no-repeat center right;
+}
+button.DTTT_button_print {
+	padding-right: 30px;
+	background:#eee url(../images/table-tools/print.png) no-repeat center right;
+}
+button.DTTT_button_print_hover {
+	padding-right: 30px;
+	border: 1px solid #ccc;
+	background: url(../images/table-tools/print_hover.png) no-repeat center right;
+}
+button.DTTT_button_text {
+}
+button.DTTT_button_text_hover {
+	border: 1px solid #ccc;
+	background-color: #f0f0f0;
+}
+button.DTTT_button_collection {
+	padding-right: 17px;
+	background: url(../images/table-tools/collection.png) no-repeat center right;
+}
+button.DTTT_button_collection_hover {
+	padding-right: 17px;
+	border: 1px solid #ccc;
+	background: url(../images/table-tools/collection_hover.png) no-repeat center right;
+}
+/*
+ * SELECTING
+ * Row selection styles
+ */
+table.DTTT_selectable tbody tr {
+	cursor: pointer;
+ *cursor: hand;
+}
+tr.DTTT_selected.odd {
+	background-color: #9FAFD1;
+}
+tr.DTTT_selected.odd td.sorting_1 {
+	background-color: #9FAFD1;
+}
+tr.DTTT_selected.odd td.sorting_2 {
+	background-color: #9FAFD1;
+}
+tr.DTTT_selected.odd td.sorting_3 {
+	background-color: #9FAFD1;
+}
+tr.DTTT_selected.even {
+	background-color: #B0BED9;
+}
+tr.DTTT_selected.even td.sorting_1 {
+	background-color: #B0BED9;
+}
+tr.DTTT_selected.even td.sorting_2 {
+	background-color: #B0BED9;
+}
+tr.DTTT_selected.even td.sorting_3 {
+	background-color: #B0BED9;
+}
+/*
+ * COLLECTIONS
+ * Drop down list (collection) styles
+ */
+
+div.DTTT_collection {
+	width: 150px;
+	padding: 3px;
+	border: 1px solid #ccc;
+	background-color: #f3f3f3;
+	overflow: hidden;
+	z-index: 2002;
+}
+div.DTTT_collection_background {
+	background: transparent url(../images/table-tools/background.png) repeat top left;
+	z-index: 2001;
+}
+div.DTTT_collection button.DTTT_button {
+	float: none;
+	width: 100%;
+	margin-bottom: 2px;
+	background-color: white;
+}
+/*
+ * PRINTING
+ * Print display styles
+ */
+
+.DTTT_print_info {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 150px;
+	margin-left: -200px;
+	margin-top: -75px;
+	text-align: center;
+	background-color: #3f3f3f;
+	color: white;
+	padding: 10px 30px;
+	opacity: 0.9;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+.DTTT_print_info h6 {
+	font-weight: normal;
+	font-size: 28px;
+	line-height: 28px;
+	margin: 1em;
+}
+.DTTT_print_info p {
+	font-size: 14px;
+	line-height: 20px;
+}
+/*
+ * MISC
+ * Minor misc styles
+ */
+
+.DTTT_disabled {
+	color: #999;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * ColVis styles
+ */
+.ColVis {
+	float: right;
+	margin: 15px 12px;
+}
+.ColVis_Button {
+	position: relative;
+	float: left;
+	margin-right: 3px;
+	padding: 3px 5px;
+	height: 30px;
+	background-color: #f8f8f8;
+	border: 1px solid #ccc;
+	font-size:11px;
+	cursor: pointer;
+ *cursor: hand;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+}
+ button.ColVis_Button::-moz-focus-inner {
+ border: none !important;
+ padding: 0;
+}
+.ColVis_text_hover {
+	border: 1px solid #999;
+	background-color: #f0f0f0;
+}
+div.ColVis_collectionBackground {
+	background-color: black;
+	z-index: 1100;
+}
+div.ColVis_collection {
+	position: relative;
+	width: 150px;
+	background-color: #f3f3f3;
+	padding: 3px;
+	border: 1px solid #ccc;
+	z-index: 1102;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+}
+div.ColVis_collection button.ColVis_Button {
+	background-color: white;
+	width: 100%;
+	float: none;
+	margin-bottom: 2px;
+}
+div.ColVis_catcher {
+	position: absolute;
+	z-index: 1101;
+}
+.disabled {
+	color: #999;
+}
+button.ColVis_Button {
+	text-align: left;
+}
+div.ColVis_collection button.ColVis_Button:hover {
+	border: 1px solid #999;
+	background-color: #f0f0f0;
+}
+span.ColVis_radio {
+	display: inline-block;
+	width: 20px;
+}
+span.ColVis_title {
+	position:relative;
+	top:-2px;
+}

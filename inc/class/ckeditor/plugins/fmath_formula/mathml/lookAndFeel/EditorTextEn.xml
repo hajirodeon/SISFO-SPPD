@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<translate>
+		<text id="propComboLEFT">LEFT</text>
+		<text id="propComboCENTER">CENTER</text>
+		<text id="propComboRIGHT">RIGHT</text>
+		<text id="propComboTOP">TOP</text>
+		<text id="propComboBOTTOM">BOTTOM</text>
+		<text id="propComboNONE">NONE</text>
+		<text id="propComboSOLID">SOLID</text>
+		<text id="propComboDASHED">DASHED</text>		
+		<text id="propLabelText">Text:</text>
+		<text id="propLabelHref">HRef:</text>
+		<text id="propLabelBorder">Border:</text>
+		<text id="propLabelBorderColor">Border color:</text>
+		<text id="propLabelVariant">Font:</text>
+		<text id="propLabelSize">Size:</text>
+		<text id="propLabelColor">Color:</text>
+		<text id="propLabelBackcolor">Backcolor:</text>
+		<text id="propLabelShiftSup">Superscript shift:</text>
+		<text id="propLabelShiftY">Shift Y:</text>
+		<text id="propLabelShiftX">Shift X:</text>
+		<text id="propLabelBevelled">Bevelled:</text>
+		<text id="propLabelNumAlign">Numerator align:</text>
+		<text id="propLabelDenumAlign">Denominator align:</text>
+		<text id="propLabelThickness">Line thickness:</text>
+		<text id="propLabelNumber">Number:</text>
+		<text id="propLabelRowalign">Row align:</text>
+		<text id="propLabelRowspan">Row span:</text>
+		<text id="propLabelColumnalign">Column align:</text>
+		<text id="propLabelColumnspan">Column span:</text>
+		<text id="propLabelFrame">Frame:</text>
+		<text id="propLabelFramespacing">Frame spacing:</text>
+		<text id="propLabelRowlines">Row lines:</text>
+		<text id="propLabelRowspacing">Row spacing:</text>
+		<text id="propLabelColumnlines">Column lines:</text>
+		<text id="propLabelColumnspacing">Column spacing:</text>
+		<text id="propLabelOpen">Open:</text>
+		<text id="propLabelClose">Close:</text>
+		<text id="propLabelLongdiv">Longdiv:</text>		
+		<text id="propLabelActuarial">Actuarial:</text>		
+		<text id="propLabelRadical">Radical:</text>
+		<text id="propLabelBox">Box:</text>
+		<text id="propLabelRoundedbox">Rounded box:</text>
+		<text id="propLabelCircle">Circle:</text>
+		<text id="propLabelLeft">Left:</text>
+		<text id="propLabelRight">Right:</text>
+		<text id="propLabelTop">Top:</text>
+		<text id="propLabelBottom">Bottom:</text>
+		<text id="propLabelUpdiagonalstrike">Up diagonal:</text>
+		<text id="propLabelDowndiagonalstrike">Down diagonal:</text>
+		<text id="propLabelVerticalstrike">Vertical:</text>
+		<text id="propLabelHorizontalstrike">Horizontal:</text>
+		<text id="propLabelMadruwb">Madruwb:</text>
+		<text id="propLabelWidth">Width:"</text>
+		<text id="propLabelHeight">Height:"</text>
+		<text id="propLabelBreak">Is break?"</text>
+		<text id="propLabelLspace">Left space:</text>
+		<text id="propLabelDepth">Depth:</text>
+		<text id="propLabelStretchy">Is stretchy?</text>
+		<text id="propLabelMaxsize">Max size:</text>
+		<text id="propLabelMinsize">Min size:</text>
+		<text id="propLabelShiftSub">Subscript shift:</text>
+		<text id="propLabelNbPrescripts">Nb prescripts:</text>
+		<text id="propLabelNbPostscripts">Nb postscripts:</text>
+		
+		<text id="propUpdateButton">Update</text>		
+
+		<text id="mrowProperties">mrow properties</text>
+		<text id="mathProperties">math properties</text>
+		<text id="mactionProperties">maction properties</text>
+		<text id="mencloseProperties">menclose properties</text>
+		<text id="mfencedProperties">mfenced properties</text>
+		<text id="mphantomProperties">mphantom properties</text>
+		<text id="mpaddedProperties">mpadded properties</text>
+		<text id="mspaceProperties">mspace properties</text>
+		<text id="merrorProperties">merror properties</text>
+		<text id="mfracProperties">mfrac properties</text>
+		<text id="msqrtProperties">msqrt properties</text>
+		<text id="mrootProperties">mroot properties</text>
+		<text id="mmultiscriptsProperties">mmultiscripts properties</text>
+		<text id="noneProperties">none properties</text>
+		<text id="moverProperties">mover properties</text>
+		<text id="msupProperties">msup properties</text>
+		<text id="munderProperties">munder properties</text>
+		<text id="msubProperties">msub properties</text>
+		<text id="msubsupProperties">msubsup properties</text>
+		<text id="munderoverProperties">munderover properties</text>
+		<text id="miProperties">mi properties</text>
+		<text id="mnProperties">mn properties</text>
+		<text id="moProperties">mo properties</text>
+		<text id="mtextProperties">mtext properties</text>
+		<text id="msProperties">ms properties</text>
+		<text id="mtableProperties">mtable properties</text>
+		<text id="mtrProperties">mtr properties</text>
+		<text id="mtdProperties">mtd properties</text>
+		<text id="mstyleProperties">mstyle properties</text>
+		<text id="mstackProperties">mstack properties</text>
+		<text id="msrowProperties">msrow properties</text>
+		<text id="mslineProperties">msline properties</text>
+		<text id="mscarriesProperties">mscarries properties</text>
+		<text id="mscarryProperties">mscarry properties</text>
+		<text id="mlongdivProperties">mlongdiv properties</text>
+		<text id="msgroupProperties">msgroup properties</text>
+		
+		<text id="commonProperties">common properties:</text>
+		<text id="styleProperties">style properties:</text>
+		<text id="fenceOpen">Open:</text>		
+		<text id="fenceClose">Close:</text>
+		<text id="matrixChoiceLines">Nb of lines:</text>
+		<text id="matrixChoiceColumns">Nb of columns:</text>
+		<text id="matrixChoiceButton">Create matrix</text>
+		<text id="gradeChoiceLines">The grade:</text>		
+		<text id="PolynomCreateButton">Create Polynome</text>
+		<text id="EquationCreateButton">Create Equation</text>	
+		
+		<text id="font-normal">Serif</text>
+		<text id="font-sans-serif">Sans Serif</text>
+		<text id="font-script">Script</text>
+		<text id="font-double-struck">Double Struck</text>
+		<text id="font-fraktur">Fraktur</text>
+		<text id="font-monospace">Monospace</text>
+		<text id="font-circle">Circle</text>
+
+		<text id="lookAndFeelXP">Xp Design</text>
+		<text id="lookAndFeelXpBlue">Blue</text>		
+		<text id="lookAndFeelXpRed">Red</text>		
+		<text id="lookAndFeelXpGreen">Green</text>				
+		
+		<text id="lookAndFeelYui">Yui Design</text>
+		<text id="lookAndFeelYuiBlack">Default</text>		
+		
+		<text id="lookAndFeelCKE">CKEditor Design</text>
+		<text id="lookAndFeelCKEBlue">Default</text>		
+		
+		<text id="lookAndFeelTiny">TinyMCE Design</text>
+		<text id="lookAndFeelTinyDefault">Default</text>
+		<text id="lookAndFeelTinyRed">Red</text>		
+
+		<text id="languageEn">English</text>		
+		<text id="languageFr">French</text>		
+		<text id="languageRo">Romanian</text>				
+	</translate>
+</configuration>

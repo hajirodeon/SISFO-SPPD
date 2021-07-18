@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="author" content="Ionel Alexandru">
+	<meta name="reply-to" content="ionel.alexandru@gmail.com">
+	<title>fMath Editor - {#fmath_formula_dlg.title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
+</head>
+<body>
+<script>
+	var mathml = tinyMCEPopup.editor.plugins["fmath_formula"].getCurrentMathML();
+</script>
+
+<form action="#">
+	<input id="mathml_n" name="mathml_n" type="hidden"/>
+	<input id="mathml_f" name="mathml_f" type="hidden"/>
+	<table width="100%" height="460">
+	<tr height="100%">
+		<td align="center">
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="850" height="460" id="editML" name="editML" align="middle">
+			<param name=wmode value="transparent">
+			<param name="allowScriptAccess" value="always"/>
+			<param name="allowFullScreen" value="true"/>
+			<param name="loop" value="false"/>
+			<param name="quality" value="high" />
+			<param name="flashVars" value="configUrl=configMathMLEditor.xml&loadOnInit=true"/>
+			<param name="movie" value="mathml/MathMLEditor.swf?configUrl=configMathMLEditor.xml&loadOnInit=true" />
+			<embed src="mathml/MathMLEditor.swf?configUrl=configMathMLEditor.xml&loadOnInit=true"
+	            wmode="transparent"
+				flashVars="configUrl=configMathMLEditor.xml&loadOnInit=true"
+				loop="false"
+				quality="high"
+				width="850"
+				height="460"
+                id="editML"
+				name="editML"
+				align="middle"
+                swliveconnect="true"
+				allowScriptAccess="always"
+				allowFullScreen="true"
+				type="application/x-shockwave-flash"
+				pluginspage="http://www.adobe.com/go/getflashplayer" />
+		</object>
+		</td>
+	</tr>
+	</table>
+
+	<div class="mceActionPanel">
+		<input type="button" class="button" id="update" name="update" value="{#update}" onclick="updateFormula();" />
+		<input type="button" id="insert" name="insert" value="{#insert}" onclick="insertFormula();" />
+		<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+	</div>
+</form>
+<script>
+	if(mathml!=null){
+		document.getElementById("insert").style.display="none";
+	}else{
+		document.getElementById("update").style.display="none";
+	}
+
+	function getMathMLFromJavascript(name){
+		document.getElementById('editML').focus();
+		if(mathml!=null){
+			return mathml;
+		}
+		return "<mrow><mtext>...</mtext></mrow>";
+	}
+
+
+	function updateFormula() {
+		var mathMlEd = getSWF('editML');
+		document.getElementById('mathml_f').value=mathMlEd.getMathML();
+		mathMlEd.saveImageOnServer();
+	}
+
+
+	function insertFormula(){
+		var mathMlEd = getSWF('editML');
+		document.getElementById('mathml_f').value=mathMlEd.getMathML();
+		mathMlEd.saveImageOnServer();;
+	}
+
+	function setFileNameFromServer(n){
+			document.getElementById('mathml_n').value = n;
+			setTimeout('saveAndUpdate()', 10);
+	}
+
+	function saveAndUpdate(){
+		if(mathml!=null){
+			MathML_FormulaDialog.update();
+		}else{
+			MathML_FormulaDialog.insert();
+		}
+	}
+
+
+	function getSWF(movieName) {
+	    if (navigator.appName.indexOf("Microsoft") != -1) {
+	        return document.getElementById(movieName);
+	    }
+	    else {
+	      if(document[movieName].length != undefined){
+	          return document[movieName][1];
+	      }
+	        return document[movieName];
+	    }
+	}
+
+	getSWF('editML').focus();
+</script>
+
+</body>
+</html>

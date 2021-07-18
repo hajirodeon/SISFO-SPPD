@@ -1,0 +1,21 @@
+.boton{
+width: 160px;
+}
+
+#thumbs li.img_thumb{
+	width: 152px;
+	height: 170px;
+}
+
+#thumbs li.img_thumb div.thumb_bottom{
+	width: 152px;	
+}
+
+#thumbs li.img_thumb .ui-widget-header{
+	width: 152px;
+	height: 20px;
+}
+
+#ajaxLoader{
+height: 100px !important;
+}

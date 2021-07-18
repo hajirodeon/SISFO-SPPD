@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{judul}</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<!--
+//////////////////////////////////////////////////////////////////////
+// SISFO-SPPD, Sistem Informasi Surat Perintah Perjalanan Dinas.    //
+// Cocok untuk kantor - kantor yang membutuhkan pengarsipan surat   //
+// perintah tugas perjalanan dinas.                                 //
+//////////////////////////////////////////////////////////////////////
+// Dikembangkan oleh : Agus Muhajir                                 //
+// E-Mail : hajirodeon@gmail.com                                    //
+// HP/SMS/WA : 081-829-88-54                                        //
+// source code : http://github.com/hajirodeon                       //
+//////////////////////////////////////////////////////////////////////
+-->
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{sumber}/template/adminlte3/plugins/fontawesome-free/css/all.min.css">
+  
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	              	
+	<!-- Bootstrap core JavaScript -->
+	<script src="{sumber}/template/vendors/jquery/jquery.min.js"></script>
+	<script src="{sumber}/template/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{sumber}/template/adminlte3/dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
+  
+
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse layout-fixed">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+			
+			Administrator
+
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+		<li class="nav-item dropdown">
+	        <a class="nav-link" href="{sumber}/adm/log/notif.php">
+	          <i class="far fa-bell"></i>
+	          <span class="badge badge-warning navbar-badge">{i_loker}</span>
+	        </a>
+	      </li>
+	      
+      <li class="nav-item">
+        <a class="nav-link" href="{sumber}/logout.php" title="Keluar">
+          <i class="fa fa-sign-out"></i> KELUAR
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+
+
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+
+    <a href="#" class="brand-link">
+      <img src="{sumber}/img/logo.png" alt="ADMIN" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">ADMIN</span>
+    </a>
+    
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="{sumber}/adm/index.php" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                BERANDA
+              </p>
+            </a>
+          </li>
+          
+          
+          
+            <li class="nav-item has-treeview">
+	            <a href="#" class="nav-link">
+	              <i class="nav-icon fa fa-cog"></i>
+	              <p>
+	                SETTING
+	                <i class="right fas fa-angle-left"></i>
+	              </p>
+	            </a>
+	            <ul class="nav nav-treeview">
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/s/pass.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Ganti Password</p>
+	                </a>
+	              </li>
+	
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/s/user.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>User Tata Usaha</p>
+	                </a>
+	              </li>
+	              
+	            </ul>
+	          </li>
+
+
+
+
+
+
+
+            <li class="nav-item has-treeview">
+	            <a href="#" class="nav-link">
+	              <i class="nav-icon fa fa-hourglass-start"></i>
+	              <p>
+	                LOG
+	                <i class="right fas fa-angle-left"></i>
+	              </p>
+	            </a>
+	            <ul class="nav nav-treeview">
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/log/ip.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>IP Login</p>
+	                </a>
+	              </li>
+	
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/log/notif.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Pemberitahuan</p>
+	                </a>
+	              </li>
+	              
+	            </ul>
+	          </li>
+
+
+
+
+
+
+
+
+          
+            <li class="nav-item has-treeview">
+	            <a href="#" class="nav-link">
+	              <i class="nav-icon fa fa-database"></i>
+	              <p>
+	                MASTER
+	                <i class="right fas fa-angle-left"></i>
+	              </p>
+	            </a>
+	            <ul class="nav nav-treeview">
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/prov.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Provinsi</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/kota.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Kota</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/beban.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Beban</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/rekening.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Rekening</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/gol_pangkat.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Golongan Pangkat</p>
+	                </a>
+	              </li>
+
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/eselon.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Eselon</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/bagian.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Bagian</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/jabatan.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Jabatan</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/jabatan_perintah.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Jabatan Perintah</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/jabatan_ttd.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Jabatan TTD</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/jenis_trans.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Jenis Transportasi</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/tarif_sopir.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Tarif Sopir/Driver</p>
+	                </a>
+	              </li>
+	              
+
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/d/tarif_hotel.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Tarif Hotel</p>
+	                </a>
+	              </li>
+	              
+
+	
+	            </ul>
+          </li>
+
+
+
+
+
+
+
+          
+            <li class="nav-item has-treeview">
+	            <a href="#" class="nav-link">
+	              <i class="nav-icon fa fa-money"></i>
+	              <p>
+	                UANG DAN BIAYA
+	                <i class="right fas fa-angle-left"></i>
+	              </p>
+	            </a>
+	            <ul class="nav nav-treeview">
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/u/harian_diklat.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Harian Diklat</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/u/representasi.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Representasi</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/u/trans_darat.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Transportasi Darat</p>
+	                </a>
+	              </li>
+	              
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/u/trans_darat_bandara.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Dari Bandara</p>
+	                </a>
+	              </li>
+	
+	            </ul>
+	          </li>
+
+
+
+
+
+          
+          
+            <li class="nav-item has-treeview">
+	            <a href="#" class="nav-link">
+	              <i class="nav-icon fa fa-users"></i>
+	              <p>
+	                PEGAWAI/PEJABAT
+	                <i class="right fas fa-angle-left"></i>
+	              </p>
+	            </a>
+	            <ul class="nav nav-treeview">
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/peg/pegawai.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Pegawai/Pejabat</p>
+	                </a>
+	              </li>
+	
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/peg/perintah.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Pemberi Perintah</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/peg/ttd_sppd.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>TTD SPPD</p>
+	                </a>
+	              </li>
+	              
+	            </ul>
+	          </li>
+
+
+
+
+
+
+
+
+          
+            <li class="nav-item has-treeview">
+	            <a href="#" class="nav-link">
+	              <i class="nav-icon fa fa-tasks"></i>
+	              <p>
+	                KEGIATAN
+	                <i class="right fas fa-angle-left"></i>
+	              </p>
+	            </a>
+	            <ul class="nav nav-treeview">
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/keg/kegiatan.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Data Kegiatan</p>
+	                </a>
+	              </li>
+	
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/keg/anggaran.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Data Anggaran</p>
+	                </a>
+	              </li>
+	              
+	            </ul>
+	          </li>
+
+
+
+
+
+
+
+
+
+          
+            <li class="nav-item has-treeview">
+	            <a href="#" class="nav-link">
+	              <i class="nav-icon fa fa-suitcase"></i>
+	              <p>
+	                SPT
+	                <i class="right fas fa-angle-left"></i>
+	              </p>
+	            </a>
+	            <ul class="nav nav-treeview">
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/spt/spt.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Data SPT</p>
+	                </a>
+	              </li>
+	
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/spt/spt_akhir.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Data SPT Akhir</p>
+	                </a>
+	              </li>
+	              
+	            </ul>
+	          </li>
+
+
+
+
+
+
+
+          
+            <li class="nav-item has-treeview">
+	            <a href="#" class="nav-link">
+	              <i class="nav-icon fa fa-newspaper-o"></i>
+	              <p>
+	                LAPORAN
+	                <i class="right fas fa-angle-left"></i>
+	              </p>
+	            </a>
+	            <ul class="nav nav-treeview">
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/orang.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Per Orang</p>
+	                </a>
+	              </li>
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/bagian.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Per Bagian</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/bulan.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Bagian & Bulan</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/tahun.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Bagian & Tahun</p>
+	                </a>
+	              </li>
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/gol.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Per Golongan/Ruang</p>
+	                </a>
+	              </li>
+	              
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/gol_bulan.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Golongan/Ruang & Bulan</p>
+	                </a>
+	              </li>
+	              
+	              
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/gol_tahun.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Golongan/Ruang & Tahun</p>
+	                </a>
+	              </li>
+
+
+	              
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/jalan.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Per Jenis Perjalanan</p>
+	                </a>
+	              </li>
+	              
+	              
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/jalan_bulan.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Per Bulan Perjalanan</p>
+	                </a>
+	              </li>
+	              
+	              
+	              
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/dd.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Per Dalam Daerah</p>
+	                </a>
+	              </li>
+
+
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/ld.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Per Luar Daerah</p>
+	                </a>
+	              </li>
+
+
+
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/jabatan.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Per Jabatan & Bulan</p>
+	                </a>
+	              </li>
+
+
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/jabatan_tahun.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Per Jabatan & Tahun</p>
+	                </a>
+	              </li>
+
+
+	              
+	              <li class="nav-item">
+	                <a href="{sumber}/adm/lap/pegawai.php" class="nav-link">&nbsp;&nbsp;
+	                  <i class="fa fa-arrow-circle-right nav-icon"></i>
+	                  <p>Per Pegawai/Pejabat</p>
+	                </a>
+	              </li>
+
+	              	              	
+	            </ul>
+	          </li>
+
+
+
+
+
+
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12">
+            <h1>{judulku}</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- Default box -->
+            <div class="card">
+              <div class="card-body">
+             
+             
+             
+              	{isi}
+
+              </div>
+              <!-- /.card-body -->
+
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>{versi}</b>
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous" charset="utf-8"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/tokenfield-typeahead.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" charset="utf-8"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  $(function() {
+  	
+  	$.noConflict();
+
+
+
+	$('#kunci').typeahead({
+      source: function(query, result)
+	      {
+	      $.ajax({
+		      url:"{sumber}/adm/peg/i_cari_pegawai.php",
+		      method:"POST",
+		      data:{query:query},
+		      dataType:"json",
+		      success:function(data)
+			      {
+			      result($.map(data, function(item){
+				      return item;
+				      }));
+			      }
+		      })
+	      }
+      });
+     
+     
+     
+     
+	$('#carikota1').typeahead({
+      source: function(query, result)
+	      {
+	      $.ajax({
+		      url:"{sumber}/adm/d/i_cari_kota.php",
+		      method:"POST",
+		      data:{query:query},
+		      dataType:"json",
+		      success:function(data)
+			      {
+			      result($.map(data, function(item){
+				      return item;
+				      }));
+			      }
+		      })
+	      }
+      });
+     
+    
+    
+    
+	$('#carikota2').typeahead({
+      source: function(query, result)
+	      {
+	      $.ajax({
+		      url:"{sumber}/adm/d/i_cari_kota.php",
+		      method:"POST",
+		      data:{query:query},
+		      dataType:"json",
+		      success:function(data)
+			      {
+			      result($.map(data, function(item){
+				      return item;
+				      }));
+			      }
+		      })
+	      }
+      });
+    
+    
+    
+     
+
+	$('#e_pejabat').typeahead({
+      source: function(query, result)
+	      {
+	      $.ajax({
+		      url:"{sumber}/adm/spt/i_cari_perintah.php",
+		      method:"POST",
+		      data:{query:query},
+		      dataType:"json",
+		      success:function(data)
+			      {
+			      result($.map(data, function(item){
+				      return item;
+				      }));
+			      }
+		      })
+	      }
+      });
+     
+
+
+
+
+	$('#e_dari').typeahead({
+      source: function(query, result)
+	      {
+	      $.ajax({
+		      url:"{sumber}/adm/spt/i_cari_dari.php",
+		      method:"POST",
+		      data:{query:query},
+		      dataType:"json",
+		      success:function(data)
+			      {
+			      result($.map(data, function(item){
+				      return item;
+				      }));
+			      }
+		      })
+	      }
+      });
+
+
+
+
+
+	$('#e_tujuan').typeahead({
+      source: function(query, result)
+	      {
+	      $.ajax({
+		      url:"{sumber}/adm/spt/i_cari_tujuan.php",
+		      method:"POST",
+		      data:{query:query},
+		      dataType:"json",
+		      success:function(data)
+			      {
+			      result($.map(data, function(item){
+				      return item;
+				      }));
+			      }
+		      })
+	      }
+      });
+
+
+
+
+
+	$('#e_tujuan1').typeahead({
+      source: function(query, result)
+	      {
+	      $.ajax({
+		      url:"{sumber}/adm/spt/i_cari_tujuan.php",
+		      method:"POST",
+		      data:{query:query},
+		      dataType:"json",
+		      success:function(data)
+			      {
+			      result($.map(data, function(item){
+				      return item;
+				      }));
+			      }
+		      })
+	      }
+      });
+
+
+
+
+	$('#e_tujuan2').typeahead({
+      source: function(query, result)
+	      {
+	      $.ajax({
+		      url:"{sumber}/adm/spt/i_cari_tujuan.php",
+		      method:"POST",
+		      data:{query:query},
+		      dataType:"json",
+		      success:function(data)
+			      {
+			      result($.map(data, function(item){
+				      return item;
+				      }));
+			      }
+		      })
+	      }
+      });
+
+
+
+
+
+
+     
+  });
+
+
+</script>
+
+
+
+
+	
+<script>
+$(document).ready(function() {
+  		
+	$.noConflict();
+    
+});
+</script>
+
+
+
+<!-- jQuery -->
+<script src="{sumber}/template/adminlte3/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="{sumber}/template/adminlte3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- AdminLTE App -->
+<script src="{sumber}/template/adminlte3/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{sumber}/template/adminlte3/dist/js/demo.js"></script>
+
+
+
+
+
+       	
+	<!-- Bootstrap core JavaScript -->
+	<script src="{sumber}/template/vendors/jquery/jquery.min.js"></script>
+	<script src="{sumber}/template/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+<!--
+//////////////////////////////////////////////////////////////////////
+// SISFO-SPPD, Sistem Informasi Surat Perintah Perjalanan Dinas.    //
+// Cocok untuk kantor - kantor yang membutuhkan pengarsipan surat   //
+// perintah tugas perjalanan dinas.                                 //
+//////////////////////////////////////////////////////////////////////
+// Dikembangkan oleh : Agus Muhajir                                 //
+// E-Mail : hajirodeon@gmail.com                                    //
+// HP/SMS/WA : 081-829-88-54                                        //
+// source code : http://github.com/hajirodeon                       //
+//////////////////////////////////////////////////////////////////////
+-->
+
+
+
+
+</body>
+</html>

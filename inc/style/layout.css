@@ -1,0 +1,582 @@
+/*==STRUCTURE==*/
+#header {
+	height:60px;
+	clear:both;
+	z-index:99999;
+	top:0px;
+}
+#left_bar {
+	width:200px;
+	float:left;
+	height:100%;
+	position:relative;
+	overflow:hidden;
+}
+#container {
+	overflow:hidden;
+}
+#content {
+	margin:0px 1% 20px 1%;
+	position:relative;
+	min-height:650px;
+}
+/*.full_block #content,.full_block .switch_bar{ margin:0px !important;}
+.grid_container .full_block { width:100% !important; margin:0px !important;}
+.full_block .widget_wrap{ margin:0px !important;}
+*/#primary_nav {
+	height:100%;
+	width:70px;
+	position:fixed;
+}
+#primary_nav ul li {
+	height:70px;
+	position:relative;
+}
+#primary_nav li a {
+	height:70px;
+	width:70px;
+	display:block;
+}
+#sidebar {
+	width:200px;
+}
+
+#secondary_nav ul li {
+	position:relative;
+}
+#theme-default .acitem li {
+	margin-bottom:0px !important;
+}
+#secondary_nav ul li a {
+	line-height:38px;
+	display:block;
+	text-decoration:none;
+	padding-left:38px;
+}
+.top_search {
+	height:49px;
+	width:270px;
+	position: absolute;
+	top:0px;
+	right:0px;
+}
+.page_title {
+	height:49px;
+	position:relative;
+	clear:both;
+}
+.primary_active {
+	height:60px;
+	width:6px;
+	display:block;
+	position:absolute;
+	right:-1px;
+	top:5px;
+}
+/*==GRID==*/
+/*
+	Variable Grid System (Fluid Version).
+	Learn more ~ http://www.spry-soft.com/grids/
+	Based on 960 Grid System - http://960.gs/ & 960 Fluid - http://www.designinfluences.com/
+
+	Licensed under GPL and MIT.
+*/
+
+
+/* Containers
+----------------------------------------------------------------------------------------------------*/
+.grid_container {
+	width:100%;
+}
+/* Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12 {
+	display:inline;
+	float: left;
+	position: relative;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+/* Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+.alpha {
+	margin-left: 0 !important;
+}
+.omega {
+	margin-right: 0 !important;
+}
+/* Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.grid_container .grid_1 {
+	width:6.333%;
+}
+.grid_container .grid_2 {
+	width:14.667%;
+}
+.grid_container .grid_3 {
+	width:23.0%;
+}
+.grid_container .grid_4 {
+	width:31.333%;
+}
+.grid_container .grid_5 {
+	width:39.667%;
+}
+.grid_container .grid_6 {
+	width:48.0%;
+}
+.grid_container .grid_7 {
+	width:56.333%;
+}
+.grid_container .grid_8 {
+	width:64.667%;
+}
+.grid_container .grid_9 {
+	width:73.0%;
+}
+.grid_container .grid_10 {
+	width:81.333%;
+}
+.grid_container .grid_11 {
+	width:89.667%;
+}
+.grid_container .grid_12 {
+	width:98.0%;
+}
+/* Prefix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.grid_container .prefix_1 {
+	padding-left:8.333%;
+}
+.grid_container .prefix_2 {
+	padding-left:16.667%;
+}
+.grid_container .prefix_3 {
+	padding-left:25.0%;
+}
+.grid_container .prefix_4 {
+	padding-left:33.333%;
+}
+.grid_container .prefix_5 {
+	padding-left:41.667%;
+}
+.grid_container .prefix_6 {
+	padding-left:50.0%;
+}
+.grid_container .prefix_7 {
+	padding-left:58.333%;
+}
+.grid_container .prefix_8 {
+	padding-left:66.667%;
+}
+.grid_container .prefix_9 {
+	padding-left:75.0%;
+}
+.grid_container .prefix_10 {
+	padding-left:83.333%;
+}
+.grid_container .prefix_11 {
+	padding-left:91.667%;
+}
+/* Suffix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.grid_container .suffix_1 {
+	padding-right:8.333%;
+}
+.grid_container .suffix_2 {
+	padding-right:16.667%;
+}
+.grid_container .suffix_3 {
+	padding-right:25.0%;
+}
+.grid_container .suffix_4 {
+	padding-right:33.333%;
+}
+.grid_container .suffix_5 {
+	padding-right:41.667%;
+}
+.grid_container .suffix_6 {
+	padding-right:50.0%;
+}
+.grid_container .suffix_7 {
+	padding-right:58.333%;
+}
+.grid_container .suffix_8 {
+	padding-right:66.667%;
+}
+.grid_container .suffix_9 {
+	padding-right:75.0%;
+}
+.grid_container .suffix_10 {
+	padding-right:83.333%;
+}
+.grid_container .suffix_11 {
+	padding-right:91.667%;
+}
+/* Push Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.grid_container .push_1 {
+	left:8.333%;
+}
+.grid_container .push_2 {
+	left:16.667%;
+}
+.grid_container .push_3 {
+	left:25.0%;
+}
+.grid_container .push_4 {
+	left:33.333%;
+}
+.grid_container .push_5 {
+	left:41.667%;
+}
+.grid_container .push_6 {
+	left:50.0%;
+}
+.grid_container .push_7 {
+	left:58.333%;
+}
+.grid_container .push_8 {
+	left:66.667%;
+}
+.grid_container .push_9 {
+	left:75.0%;
+}
+.grid_container .push_10 {
+	left:83.333%;
+}
+.grid_container .push_11 {
+	left:91.667%;
+}
+/* Pull Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.grid_container .pull_1 {
+	left:-8.333%;
+}
+.grid_container .pull_2 {
+	left:-16.667%;
+}
+.grid_container .pull_3 {
+	left:-25.0%;
+}
+.grid_container .pull_4 {
+	left:-33.333%;
+}
+.grid_container .pull_5 {
+	left:-41.667%;
+}
+.grid_container .pull_6 {
+	left:-50.0%;
+}
+.grid_container .pull_7 {
+	left:-58.333%;
+}
+.grid_container .pull_8 {
+	left:-66.667%;
+}
+.grid_container .pull_9 {
+	left:-75.0%;
+}
+.grid_container .pull_10 {
+	left:-83.333%;
+}
+.grid_container .pull_11 {
+	left:-91.667%;
+}
+/* Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+/* http://perishablepress.com/press/2008/02/05/lessons-learned-concerning-the-clearfix-css-hack */
+
+.clearfix:after {
+	clear: both;
+	content: ' ';
+	display: block;
+	font-size: 0;
+	line-height: 0;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+.clearfix {
+	display: inline-block;
+}
+* html .clearfix {
+	height: 1%;
+}
+.clearfix {
+	display: block;
+}
+/* FORM GRID --------------------------------------------------------------------------------------*/ 
+.form_container {
+	width:100%;
+}
+/* Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+.form_grid_1, .form_grid_2, .form_grid_3, .form_grid_4, .form_grid_5, .form_grid_6, .form_grid_7, .form_grid_8, .form_grid_9, .form_grid_10, .form_grid_11, .form_grid_12 {
+	float:left;
+	position: relative;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+/* Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.form_container .form_grid_1 {
+	width:6.333%;
+}
+.form_container .form_grid_2 {
+	width:14.667%;
+}
+.form_container .form_grid_3 {
+	width:23.0%;
+}
+.form_container .form_grid_4 {
+	width:31.333%;
+}
+.form_container .form_grid_5 {
+	width:39.667%;
+}
+.form_container .form_grid_6 {
+	width:48.0%;
+}
+.form_container .form_grid_7 {
+	width:56.333%;
+}
+.form_container .form_grid_8 {
+	width:64.667%;
+}
+.form_container .form_grid_9 {
+	width:73.0%;
+}
+.form_container .form_grid_10 {
+	width:81.333%;
+}
+.form_container .form_grid_11 {
+	width:89.667%;
+}
+.form_container .form_grid_12 {
+	width:98.0%;
+	clear:both;
+	float:none;
+}
+
+
+
+
+/* Optimized for Mobile Devices */
+
+@media screen and (min-width: 0px) and (max-width: 480px) {
+.login_container{ width:300px !important; margin:auto;}
+.login_header .login_branding { width:285px !important;}
+.grid_container .grid_1, .grid_container .grid_2, .grid_container .grid_3, .grid_container .grid_4, .grid_container .grid_5, .grid_container .grid_6, .grid_container .grid_7, .grid_container .grid_8, .grid_container .grid_9, .grid_container .grid_10, .grid_container .grid_11, .grid_container .grid_12 {
+ width:96% !important;
+ margin-left: 10px;
+ margin-right: 10px;
+}
+.grid_container .grid_12 .grid_1, .grid_container .grid_12 .grid_2, .grid_container .grid_12 .grid_3, .grid_container .grid_12 .grid_4, .grid_container .grid_12 .grid_5, .grid_container .grid_12 .grid_6, .grid_container .grid_12 .grid_7, .grid_container .grid_12 .grid_8, .grid_container .grid_12 .grid_9, .grid_container .grid_12 .grid_10, .grid_container .grid_12 .grid_11, .grid_container .grid_12 .grid_12 {
+ width:100% !important;
+ margin-left: 0px;
+ margin-right: 0px;
+}
+ #left_bar {
+display:none !important;
+}
+ #sidebar {
+display:none !important;
+}
+ #container {
+margin-left:0px !important;
+}
+ #header {
+height:120px !important;
+}
+ .header_left {
+width:435px !important;
+float:none;
+}
+ #responsive_mnu {
+float:left !important;
+display: block !important;
+}
+ .header_right {
+width:435px !important;
+}
+ .activities_s,  .comments_s,  .views_s,  .user_s {
+width:95% !important;
+float: none !important;
+margin-bottom:20px;
+}
+ .user_s {
+margin-bottom:0px;
+}
+ .table_content {
+overflow:scroll !important;
+}
+ #widget_tab li a {
+padding:0 10px !important;
+}
+ .alpha, .omega {
+ margin-left: 0 !important;
+ margin-right: 0 !important;
+}
+ .align_center, .align_right {
+ text-align: left !important;
+}
+ #chart1 table .jqplot-table-legend {
+display:none;
+}
+ .item_widget .item_block {
+width:160px !important;
+margin:10px !important;
+}
+.item_block:last-child {
+float:left !important;
+}
+.invoice_tbl {
+overflow: scroll;
+width:401px;
+border-left:#ccc 1px solid;
+border-bottom:#ccc 1px solid;
+border-right:#ccc 1px solid;
+}
+.widget_content .page_content {
+margin: 0px 18px !important;
+}
+}
+
+
+
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+.grid_container .grid_1, .grid_container .grid_2, .grid_container .grid_3, .grid_container .grid_4, .grid_container .grid_5, .grid_container .grid_6, .grid_container .grid_7, .grid_container .grid_8, .grid_container .grid_9, .grid_container .grid_10, .grid_container .grid_11, .grid_container .grid_12 {
+ width:97% !important;
+ margin-left: 10px;
+ margin-right: 10px;
+}
+.grid_container .grid_12 .grid_1, .grid_container .grid_12 .grid_2, .grid_container .grid_12 .grid_3, .grid_container .grid_12 .grid_4, .grid_container .grid_12 .grid_5, .grid_container .grid_12 .grid_6, .grid_container .grid_12 .grid_7, .grid_container .grid_12 .grid_8, .grid_container .grid_12 .grid_9, .grid_container .grid_12 .grid_10, .grid_container .grid_12 .grid_11, .grid_container .grid_12 .grid_12 {
+ width:100% !important;
+ margin-left: 0px;
+ margin-right: 0px;
+}
+ #left_bar {
+display:none !important;
+}
+ #sidebar {
+display:none !important;
+}
+ #container {
+margin-left:0px !important;
+}
+ #header {
+height:120px !important;
+}
+ .header_left {
+width:768px !important;
+float:none;
+}
+ #responsive_mnu {
+float:left !important;
+display: block !important;
+}
+ .header_right {
+width:726px !important;
+}
+ .activities_s,  .comments_s,  .views_s,  .user_s {
+width:95% !important;
+float: none !important;
+margin-bottom:20px;
+}
+ .user_s {
+margin-bottom:0px;
+}
+ .table_content {
+overflow:scroll !important;
+}
+ #widget_tab li a {
+padding:0 10px !important;
+}
+ .alpha, .omega {
+ margin-left: 0 !important;
+ margin-right: 0 !important;
+}
+ .align_center, .align_right {
+ text-align: left !important;
+}
+ #chart1 table .jqplot-table-legend {
+display:none;
+}
+.item_widget .item_block {
+width:160px !important;
+margin:10px !important;
+}
+.item_block:last-child {
+float:left !important;
+}
+.invoice_tbl {
+overflow: scroll;
+width:768px;
+border-left:#ccc 1px solid;
+border-bottom:#ccc 1px solid;
+border-right:#ccc 1px solid;
+}
+.widget_content .page_content {
+margin: 0px 18px !important;
+}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+#left_bar{ width:200px !important;}
+ #primary_nav,#start_menu{ display:none !important;}
+ #sidebar{ margin-left:0px !important;}
+ .grid_container .grid_1, .grid_container .grid_2, .grid_container .grid_3, .grid_container .grid_4, .grid_container .grid_5, .grid_container .grid_6, .grid_container .grid_7, .grid_container .grid_8, .grid_container .grid_9, .grid_container .grid_10, .grid_container .grid_11, .grid_container .grid_12 {
+ width:97% !important;
+ margin-left: 10px;
+ margin-right: 10px;
+}
+.grid_container .grid_12 .grid_1, .grid_container .grid_12 .grid_2, .grid_container .grid_12 .grid_3, .grid_container .grid_12 .grid_4, .grid_container .grid_12 .grid_5, .grid_container .grid_12 .grid_6, .grid_container .grid_12 .grid_7, .grid_container .grid_12 .grid_8, .grid_container .grid_12 .grid_9, .grid_container .grid_12 .grid_10, .grid_container .grid_12 .grid_11, .grid_container .grid_12 .grid_12 {
+ width:100% !important;
+ margin-left: 0px;
+ margin-right: 0px;
+}
+
+ .activities_s,  .comments_s,  .views_s,  .user_s {
+width:95% !important;
+float: none !important;
+margin-bottom:20px;
+}
+  .user_s {
+margin-bottom:0px;
+}
+.item_widget .item_block {
+width:140px !important;
+margin:10px !important;
+}
+.item_block:last-child {
+float:left !important;
+}
+}

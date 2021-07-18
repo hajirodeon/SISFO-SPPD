@@ -1,0 +1,264 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+
+}
+a {
+	color: #000000;
+	text-decoration: underline;
+}
+a:link {
+	color: #000000;
+	text-decoration: underline;
+}
+a:visited {
+	color: #000000;
+	text-decoration: underline;
+}
+a:hover {
+	color: #000000;
+	text-decoration: none;
+}
+a:active {
+	color: #000000;
+	text-decoration: underline;
+}
+a.footer:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #00FF00;
+	text-decoration: none;
+}
+a.footer:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #00FF00;
+}
+a.footer:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #00FF00;
+	text-decoration: underline;
+}
+a.footer:active {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #00FF00;
+	text-decoration: none;
+}
+.input {
+	BACKGROUND-COLOR: #FFFFCC;
+	border: 1px solid #996600;
+}
+.tombol {
+	BACKGROUND-COLOR: #996600;
+	color: #FFFFCC;
+	border: 1px solid #996600;
+}
+
+.cilik {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+table.collapse {
+  	border-collapse: collapse;
+	border: 0.5pt;
+	solid black;  
+}
+
+table.collapse td {
+	border: 0.5pt solid black;
+}
+
+#bubble_tooltip{
+	width:147px;
+	position:absolute;
+	display:none;
+}
+#bubble_tooltip .bubble_top{
+	background-image: url('../../img/bubble_top.gif');
+	background-repeat:no-repeat;
+	height:16px;	
+}
+#bubble_tooltip .bubble_middle{
+	background-image: url('../../img/bubble_middle.gif');
+	background-repeat:repeat-y;	
+	background-position:bottom left;
+	padding-left:7px;
+	padding-right:7px;
+}
+#bubble_tooltip .bubble_middle span{
+	position:relative;
+	top:-8px;
+	font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+	font-size:11px;
+}
+#bubble_tooltip .bubble_bottom{
+	background-image: url('../../img/bubble_bottom.gif');
+	background-repeat:no-repeat;
+	background-repeat:no-repeat;	
+	height:44px;
+	position:relative;
+	top:-6px;
+}
+
+.drag-handle{ /*Overwrite default drag handle bar background color with below*/
+background-color: #03277C;
+}
+
+#interVeil{ /*CSS for veil that covers entire page while modal window is visible*/
+position: absolute;
+background: black url(blackdot.gif);
+width: 10px;
+left: 0;
+top: 0;
+z-index: 5;
+visibility: hidden;
+filter:progid:DXImageTransform.Microsoft.alpha(opacity=80);
+opacity: 0.8;
+}
+
+.dhtmlwindow{
+position: absolute;
+border: 2px solid black;
+visibility: hidden;
+background-color: white;
+}
+
+.drag-handle{ /*CSS for Drag Handle*/
+padding: 1px;
+text-indent: 3px;
+font: bold 14px Arial;
+background-color: #CA0000;
+color: white;
+cursor: move;
+overflow: hidden;
+width: auto;
+filter:progid:DXImageTransform.Microsoft.alpha(opacity=100);
+-moz-opacity: 1;
+opacity: 1;
+}
+
+.drag-handle .drag-controls{ /*CSS for controls (min, close etc) within Drag Handle*/
+position: absolute;
+right: 1px;
+top: 2px;
+cursor: hand;
+cursor: pointer;
+}
+
+* html .drag-handle{ /*IE6 and below CSS hack. Width must be set to 100% in order for opaque title bar to render*/
+width: 100%;
+}
+
+
+.drag-contentarea{ /*CSS for Content Display Area div*/
+border-top: 1px solid brown;
+background-color: white;
+color: black;
+height: 150px;
+padding: 2px;
+overflow: auto;
+}
+
+.drag-statusarea{ /*CSS for Status Bar div (includes resizearea)*/
+border-top: 1px solid gray;
+background-color: #F8F8F8;
+height: 13px; /*height of resize image*/
+}
+
+
+.drag-resizearea{ /*CSS for Resize Area itself*/
+float: right;
+width: 13px; /*width of resize image*/
+height: 13px; /*height of resize image*/
+cursor: nw-resize;
+font-size: 0;
+}
+
+
+
+
+
+
+
+.horizontalcssmenu UL {
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	MARGIN: 0px; 
+	PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.horizontalcssmenu UL LI {
+	DISPLAY: inline; 
+	FLOAT: left; 
+	POSITION: relative
+}
+.horizontalcssmenu UL LI A {
+	BORDER-RIGHT: #202020 1px solid; 
+	PADDING-RIGHT: 8px; 
+	BORDER-TOP: #202020 0px solid; 
+	DISPLAY: block; 
+	PADDING-LEFT: 8px; 
+	PADDING-BOTTOM: 2px; 
+	FONT: bold 13px Tahoma; 
+	BORDER-LEFT: #202020 1px solid; 
+	COLOR: black; 
+	PADDING-TOP: 2px; 
+	BORDER-BOTTOM: #202020 0px solid; 
+	TEXT-DECORATION: none
+}
+.horizontalcssmenu UL LI UL {
+	BORDER-TOP: #202020 0px solid; 
+	DISPLAY: block; 
+	Z-INDEX: 100; 
+	LEFT: 0px; 
+	VISIBILITY: hidden; 
+	POSITION: absolute; 
+	TOP: 0px
+}
+.horizontalcssmenu UL LI UL LI {
+	DISPLAY: inline; 
+	FLOAT: none
+}
+.horizontalcssmenu UL LI UL LI A {
+	BORDER-TOP-WIDTH: 1px; 
+	PADDING-RIGHT: 5px; 
+	PADDING-LEFT: 5px; 
+	FONT-WEIGHT: normal; 
+	BORDER-LEFT-WIDTH: 1px; 
+	BACKGROUND: #E4D6CC; 
+	BORDER-BOTTOM-WIDTH: 1px; 
+	PADDING-BOTTOM: 2px; 
+	WIDTH: 160px; 
+	PADDING-TOP: 2px; 
+	BORDER-RIGHT-WIDTH: 1px
+}
+.horizontalcssmenu UL LI A:hover {
+	BACKGROUND: url(../../img/menubgover.gif) repeat-x center center
+}
+.horizontalcssmenu UL LI UL LI A:hover {
+	BACKGROUND: #F4EEEC
+}
+.horizontalcssmenu .arrowdiv {
+	RIGHT: 0px; 
+	BACKGROUND: url(../../img/menuarrow.gif) no-repeat left center; 
+	POSITION: absolute
+}
+ HTML P#iepara {
+	PADDING-TOP: 1em
+}
+ HTML .horizontalcssmenu UL LI {
+	FLOAT: left; 
+	HEIGHT: 1%
+}
+ HTML .horizontalcssmenu UL LI A {
+	HEIGHT: 1%
+}
