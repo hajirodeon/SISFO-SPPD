@@ -24,14 +24,12 @@ $tpl = LoadTpl("../../template/admin.html");
 nocache;
 
 //nilai
-$filenya = "bagian.php";
-$judul = "[LAPORAN]. Per Bagian";
+$filenya = "orang.php";
+$judul = "[LAPORAN]. Per Orang";
 $judulku = "$judul";
 $judulx = $judul;
 $s = nosql($_REQUEST['s']);
 $kd = nosql($_REQUEST['kd']);
-$bagkd = cegah($_REQUEST['bagkd']);
-$bagnama = cegah($_REQUEST['bagnama']);
 $sort = cegah($_REQUEST['sort']);
 $orderby = cegah($_REQUEST['orderby']);
 $kunci = cegah($_REQUEST['kunci']);
@@ -97,6 +95,10 @@ ob_end_clean();
 
 
 
+
+
+
+
 //PROSES ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //nek batal
 if ($_POST['btnBTL'])
@@ -156,50 +158,12 @@ require("../../inc/js/swap.js");
 
 
 <?php
-	//cek
-	$qcc1 = mysqli_query($koneksi, "SELECT * FROM m_bagian ".
-									"WHERE kd = '$bagkd'");
-	$rcc1 = mysqli_fetch_assoc($qcc1);
-	$cc1_nama = balikin($rcc1['nama']);
-
-	
-	echo "<select name=\"utglx\" onChange=\"MM_jumpMenu('self',this,0)\" class=\"btn btn-warning\">";
-	echo '<option value="'.$bagkd.'">'.$cc1_nama.'</option>';
-	
-	//cek
-	$qcc1 = mysqli_query($koneksi, "SELECT * FROM m_bagian ".
-									"ORDER BY nama ASC");
-	$rcc1 = mysqli_fetch_assoc($qcc1);
-	
-	do
-		{
-		$cc1_kd = cegah($rcc1['kd']);
-		$cc1_nama = balikin($rcc1['nama']);
-		$cc1_nama2 = cegah($rcc1['nama']);
-
-		 
-		echo '<option value="'.$filenya.'?bagkd='.$cc1_kd.'&bagnama='.$cc1_nama2.'">'.$cc1_nama.'</option>';
-		}
-	while ($rcc1 = mysqli_fetch_assoc($qcc1));
-	
-	echo '</select>
-
-<hr>';
-
-
-
     echo '<form action="'.$filenya.'" method="post" name="formx">';
 
 
 		//query
 		$p = new Pager();
 		$start = $p->findStart($limit);
-	
-		//jika sort bagian
-		if ($sort == "bagian")
-			{
-			$kolomnya = "peg_bag_nama";
-			}	
 		
 	
 		//jika sort nama
@@ -276,65 +240,36 @@ require("../../inc/js/swap.js");
 			
 			
 
-
-		//jika ada bag_kd
-		if (!empty($bagkd))
+			
+			
+		
+		//jika null
+		if (empty($kunci))
 			{
-			//jika null
-			if (empty($kunci))
-				{
-				$sqlcount = "SELECT * FROM t_spt_pegawai ".
-								"WHERE peg_bag_nama = '$bagnama' ".
-								"ORDER BY $kolomnya $orderby";
-				}
-				
-			else
-				{
-				$sqlcount = "SELECT * FROM t_spt_pegawai ".
-								"WHERE peg_bag_nama = '$bagnama' ".
-								"AND (spt_no LIKE '%$kunci%' ".
-								"OR peg_nip LIKE '%$kunci%' ".
-								"OR peg_nama LIKE '%$kunci%' ".
-								"OR peg_golongan LIKE '%$kunci%' ".
-								"OR peg_jabatan LIKE '%$kunci%' ".
-								"OR total_semuanya LIKE '%$kunci%' ".
-								"OR tgl_dari LIKE '%$kunci%' ".
-								"OR tgl_sampai LIKE '%$kunci%' ".
-								"OR tujuan LIKE '%$kunci%') ".
-								"ORDER BY $kolomnya $orderby";
-				}
+			$sqlcount = "SELECT * FROM t_spt_pegawai ".
+							"ORDER BY $kolomnya $orderby";
 			}
 			
 		else
 			{
-			//jika null
-			if (empty($kunci))
-				{
-				$sqlcount = "SELECT * FROM t_spt_pegawai ".
-								"ORDER BY $kolomnya $orderby";
-				}
-				
-			else
-				{
-				$sqlcount = "SELECT * FROM t_spt_pegawai ".
-								"WHERE spt_no LIKE '%$kunci%' ".
-								"OR peg_nip LIKE '%$kunci%' ".
-								"OR peg_nama LIKE '%$kunci%' ".
-								"OR peg_golongan LIKE '%$kunci%' ".
-								"OR peg_jabatan LIKE '%$kunci%' ".
-								"OR total_semuanya LIKE '%$kunci%' ".
-								"OR tgl_dari LIKE '%$kunci%' ".
-								"OR tgl_sampai LIKE '%$kunci%' ".
-								"OR tujuan LIKE '%$kunci%' ".
-								"ORDER BY $kolomnya $orderby";
-				}
+			$sqlcount = "SELECT * FROM t_spt_pegawai ".
+							"WHERE spt_no LIKE '%$kunci%' ".
+							"OR peg_nip LIKE '%$kunci%' ".
+							"OR peg_nama LIKE '%$kunci%' ".
+							"OR peg_golongan LIKE '%$kunci%' ".
+							"OR peg_jabatan LIKE '%$kunci%' ".
+							"OR total_semuanya LIKE '%$kunci%' ".
+							"OR tgl_dari LIKE '%$kunci%' ".
+							"OR tgl_sampai LIKE '%$kunci%' ".
+							"OR tujuan LIKE '%$kunci%' ".
+							"ORDER BY $kolomnya $orderby";
 			}
 
 		$sqlresult = $sqlcount;
 		$count = mysqli_num_rows(mysqli_query($koneksi, $sqlcount));
 		$pages = $p->findPages($count, $limit);
 		$result = mysqli_query($koneksi, "$sqlresult LIMIT ".$start.", ".$limit);
-		$target = "$filenya?bagkd=$bagkd&bagnama=$bagnama&kunci=$kunci&sort=$sort&orderby=$orderby";
+		$target = "$filenya?kunci=$kunci&sort=$sort&orderby=$orderby";
 		$pagelist = $p->pageList($_GET['page'], $pages, $target);
 		$data = mysqli_fetch_array($result);
 
@@ -345,62 +280,53 @@ require("../../inc/js/swap.js");
 		<input name="btnBTL" type="submit" value="RESET" class="btn btn-info">
 		</p>
 		
-		
-		<a href="bagian_xls.php" target="_blank" title="Print Rekap XLS" class="btn btn-danger"><img src="'.$sumber.'/img/xls.gif" width="16" height="16" border="0">REKAP XLS</a>
-		
-		
 		<div class="table-responsive">          
 		<table class="table" border="1">
 		<thead>
 		
 			<tr valign="top" bgcolor="'.$warnaheader.'">
 			<th>
-				<a href="'.$filenya.'?bagkd='.$bagkd.'&bagnama='.$bagnama.'&kunci='.$kunci.'&sort=bagian&orderby='.$orderby.'">
-				<strong><font color="'.$warnatext.'">BAGIAN</font></strong>
-				</a>
-			</th>
-			<th>
-				<a href="'.$filenya.'?bagkd='.$bagkd.'&bagnama='.$bagnama.'&kunci='.$kunci.'&sort=nama&orderby='.$orderby.'">
+				<a href="'.$filenya.'?kunci='.$kunci.'&sort=nama&orderby='.$orderby.'">
 				<strong><font color="'.$warnatext.'">NAMA PEGAWAI</font></strong>
 				</a>
 			</th>
 			<th>
-				<a href="'.$filenya.'?bagkd='.$bagkd.'&bagnama='.$bagnama.'&kunci='.$kunci.'&sort=golongan&orderby='.$orderby.'">
+				<a href="'.$filenya.'?kunci='.$kunci.'&sort=golongan&orderby='.$orderby.'">
 				<strong><font color="'.$warnatext.'">GOLONGAN</font></strong>
 				</a>
 			</th>
 			<th>
-				<a href="'.$filenya.'?bagkd='.$bagkd.'&bagnama='.$bagnama.'&kunci='.$kunci.'&sort=jabatan&orderby='.$orderby.'">
+				<a href="'.$filenya.'?kunci='.$kunci.'&sort=jabatan&orderby='.$orderby.'">
 				<strong><font color="'.$warnatext.'">JABATAN</font></strong>
 				</a>
 			</th>
 			<th>
-				<a href="'.$filenya.'?bagkd='.$bagkd.'&bagnama='.$bagnama.'&kunci='.$kunci.'&sort=nosppd&orderby='.$orderby.'">
+				<a href="'.$filenya.'?kunci='.$kunci.'&sort=nosppd&orderby='.$orderby.'">
 				<strong><font color="'.$warnatext.'">NO.SPPD</font></strong>
 				</a>
 			</th>
 			<th>
-				<a href="'.$filenya.'?bagkd='.$bagkd.'&bagnama='.$bagnama.'&kunci='.$kunci.'&sort=dari&orderby='.$orderby.'">
+				<a href="'.$filenya.'?kunci='.$kunci.'&sort=dari&orderby='.$orderby.'">
 				<strong><font color="'.$warnatext.'">DARI</font></strong>
 				</a>
 			</th>
 			<th>
-				<a href="'.$filenya.'?bagkd='.$bagkd.'&bagnama='.$bagnama.'&kunci='.$kunci.'&sort=sampai&orderby='.$orderby.'">
+				<a href="'.$filenya.'?kunci='.$kunci.'&sort=sampai&orderby='.$orderby.'">
 				<strong><font color="'.$warnatext.'">SAMPAI</font></strong>
 				</a>
 			</th>
 			<th>
-				<a href="'.$filenya.'?bagkd='.$bagkd.'&bagnama='.$bagnama.'&kunci='.$kunci.'&sort=lama&orderby='.$orderby.'">
+				<a href="'.$filenya.'?kunci='.$kunci.'&sort=lama&orderby='.$orderby.'">
 				<strong><font color="'.$warnatext.'">LAMA</font></strong>
 				</a>
 			</th>
 			<th>
-				<a href="'.$filenya.'?bagkd='.$bagkd.'&bagnama='.$bagnama.'&kunci='.$kunci.'&sort=tujuan&orderby='.$orderby.'">
+				<a href="'.$filenya.'?kunci='.$kunci.'&sort=tujuan&orderby='.$orderby.'">
 				<strong><font color="'.$warnatext.'">TUJUAN</font></strong>
 				</a>
 			</th>
 			<th>
-				<a href="'.$filenya.'?bagkd='.$bagkd.'&bagnama='.$bagnama.'&kunci='.$kunci.'&sort=nilainya&orderby='.$orderby.'">
+				<a href="'.$filenya.'?kunci='.$kunci.'&sort=nilainya&orderby='.$orderby.'">
 				<strong><font color="'.$warnatext.'">NILAI SPPD</font></strong>
 				</a>
 			</th>
@@ -433,7 +359,6 @@ require("../../inc/js/swap.js");
 				$e_nama = balikin($data['peg_nama']);
 				$i_gol_nama = balikin($data['peg_golongan']);
 				$i_jabatan_nama = balikin($data['peg_jabatan']);
-				$i_bagian = balikin($data['peg_bag_nama']);
 				$i_spt_kd = balikin($data['spt_kd']);
 				$i_spt_no = balikin($data['spt_no']);
 				$i_total = balikin($data['total_semuanya']);
@@ -450,8 +375,6 @@ require("../../inc/js/swap.js");
 				$ryuk = mysqli_fetch_assoc($qyuk);
 				$yuk_gelar_depan = balikin($ryuk['gelar_depan']);
 				$yuk_gelar_belakang = balikin($ryuk['gelar_belakang']);	
-				$yuk_bag_kd = cegah($ryuk['bag_kd']);		
-				$yuk_bag_nama = cegah($ryuk['bag_nama']);	
 	
 	
 				//ketahui spt terakhir
@@ -472,16 +395,13 @@ require("../../inc/js/swap.js");
 											"SET tgl_dari = '$yuk2_tgl_dari', ".
 											"tgl_sampai = '$yuk2_tgl_sampai', ".
 											"jml_lama = '$yuk2_jml_lama', ".
-											"tujuan = '$yuk2_tujuan $yuk2_tujuan_1 $yuk2_tujuan_2', ".
-											"peg_bag_kd = '$yuk_bag_kd', ".
-											"peg_bag_nama = '$yuk_bag_nama' ".
+											"tujuan = '$yuk2_tujuan $yuk2_tujuan_1 $yuk2_tujuan_2' ".
 											"WHERE spt_kd = '$i_spt_kd' ".
 											"AND peg_kd = '$e_pegkd'");
 	
 		
 				echo "<tr valign=\"top\" bgcolor=\"$warna\" onmouseover=\"this.bgColor='$warnaover';\" onmouseout=\"this.bgColor='$warna';\">";
-				echo '<td>'.$yuk_bag_nama.'</td>
-				<td>
+				echo '<td>
 				'.$e_nama.' '.$i_gelar_belakang.'
 				</td>
 				<td>'.$i_gol_nama.'</td>
@@ -497,46 +417,21 @@ require("../../inc/js/swap.js");
 			while ($data = mysqli_fetch_assoc($result));
 			}
 		
-
-
-
-		//jika ada bag_kd
-		if (!empty($bagkd))
-			{
-			//totalnya
-			$qjuk = mysqli_query($koneksi, "SELECT SUM(total_semuanya) AS totalnya ".
-											"FROM t_spt_pegawai ".
-											"WHERE peg_bag_nama = '$bagnama' ".
-											"AND (spt_no LIKE '%$kunci%' ".
-											"OR peg_nip LIKE '%$kunci%' ".
-											"OR peg_nama LIKE '%$kunci%' ".
-											"OR peg_golongan LIKE '%$kunci%' ".
-											"OR peg_jabatan LIKE '%$kunci%' ".
-											"OR total_semuanya LIKE '%$kunci%' ".
-											"OR tgl_dari LIKE '%$kunci%' ".
-											"OR tgl_sampai LIKE '%$kunci%' ".
-											"OR tujuan LIKE '%$kunci%')");
-			$rjuk = mysqli_fetch_assoc($qjuk);
-			$juk_totalnya = balikin($rjuk['totalnya']);
-			}
-			
-		else
-			{
-			//totalnya
-			$qjuk = mysqli_query($koneksi, "SELECT SUM(total_semuanya) AS totalnya ".
-											"FROM t_spt_pegawai ".
-											"WHERE spt_no LIKE '%$kunci%' ".
-											"OR peg_nip LIKE '%$kunci%' ".
-											"OR peg_nama LIKE '%$kunci%' ".
-											"OR peg_golongan LIKE '%$kunci%' ".
-											"OR peg_jabatan LIKE '%$kunci%' ".
-											"OR total_semuanya LIKE '%$kunci%' ".
-											"OR tgl_dari LIKE '%$kunci%' ".
-											"OR tgl_sampai LIKE '%$kunci%' ".
-											"OR tujuan LIKE '%$kunci%'");
-			$rjuk = mysqli_fetch_assoc($qjuk);
-			$juk_totalnya = balikin($rjuk['totalnya']);
-			}
+		
+		//totalnya
+		$qjuk = mysqli_query($koneksi, "SELECT SUM(total_semuanya) AS totalnya ".
+										"FROM t_spt_pegawai ".
+										"WHERE spt_no LIKE '%$kunci%' ".
+										"OR peg_nip LIKE '%$kunci%' ".
+										"OR peg_nama LIKE '%$kunci%' ".
+										"OR peg_golongan LIKE '%$kunci%' ".
+										"OR peg_jabatan LIKE '%$kunci%' ".
+										"OR total_semuanya LIKE '%$kunci%' ".
+										"OR tgl_dari LIKE '%$kunci%' ".
+										"OR tgl_sampai LIKE '%$kunci%' ".
+										"OR tujuan LIKE '%$kunci%'");
+		$rjuk = mysqli_fetch_assoc($qjuk);
+		$juk_totalnya = balikin($rjuk['totalnya']);
 		
 		
 		
@@ -545,7 +440,6 @@ require("../../inc/js/swap.js");
 			<tfoot>
 		
 			<tr valign="top" bgcolor="'.$warnaheader.'">
-			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>
