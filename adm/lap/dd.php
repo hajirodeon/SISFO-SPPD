@@ -361,7 +361,9 @@ require("../../inc/js/swap.js");
 		$data = mysqli_fetch_array($result);
 
 
-		echo '<div class="table-responsive">          
+		echo '<a href="dd_xls.php" target="_blank" title="Print Rekap XLS" class="btn btn-danger"><img src="'.$sumber.'/img/xls.gif" width="16" height="16" border="0">REKAP XLS</a>
+		
+		<div class="table-responsive">          
 		<table class="table" border="1">
 		<thead>
 		
@@ -414,11 +416,6 @@ require("../../inc/js/swap.js");
 				</a>
 			</th>
 			<th>
-				<a href="'.$filenya.'?kegkd='.$kegkd.'&kegnama='.$kegnama.'&kunci='.$kunci.'&sort=tujuan&orderby='.$orderby.'">
-				<strong><font color="'.$warnatext.'">TUJUAN</font></strong>
-				</a>
-			</th>
-			<th>
 				<a href="'.$filenya.'?kegkd='.$kegkd.'&kegnama='.$kegnama.'&kunci='.$kunci.'&sort=nilainya&orderby='.$orderby.'">
 				<strong><font color="'.$warnatext.'">NILAI SPPD</font></strong>
 				</a>
@@ -458,7 +455,7 @@ require("../../inc/js/swap.js");
 				//detailnya
 				$qmboh = mysqli_query($koneksi, "SELECT * FROM t_spt_pegawai ".
 													"WHERE spt_kd = '$e_kd' ".
-													"ORDER BY peg_nama ASC");
+													"ORDER BY round(peg_nourut) ASC");
 				$rmboh = mysqli_fetch_assoc($qmboh);
 				$e_pegkd = balikin($rmboh['peg_kd']);
 				$e_nip = balikin($rmboh['peg_nip']);
@@ -518,7 +515,6 @@ require("../../inc/js/swap.js");
 				<td>'.$yuk2_tgl_dari.'</td>
 				<td>'.$yuk2_tgl_sampai.'</td>
 				<td>'.$yuk2_jml_lama.'</td>
-				<td>'.$yuk2_tujuan.' '.$yuk2_tujuan_1.' '.$yuk2_tujuan_2.' </td>
 				<td align="right">'.xduit2($i_total).'</td>
 		        </tr>';
 				}
@@ -570,7 +566,6 @@ require("../../inc/js/swap.js");
 			<tfoot>
 		
 			<tr valign="top" bgcolor="'.$warnaheader.'">
-			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>
 			<th><strong><font color="'.$warnatext.'"></font></strong></th>

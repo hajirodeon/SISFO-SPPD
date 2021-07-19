@@ -178,12 +178,15 @@ else
 	$data = mysqli_fetch_array($result);
 
 
-	echo '<div class="table-responsive">          
+	echo '<a href="jalan_bulan_xls.php?ubln='.$ubln.'&uthn='.$uthn.'" target="_blank" title="Print Rekap XLS" class="btn btn-danger"><img src="'.$sumber.'/img/xls.gif" width="16" height="16" border="0">REKAP XLS</a>
+		
+		
+	<div class="table-responsive">          
 	<table class="table" border="1">
 	<thead>
 	
 		<tr valign="top" bgcolor="'.$warnaheader.'">
-		<th><strong><font color="'.$warnatext.'">NAMA</font></strong></th>
+		<th><strong><font color="'.$warnatext.'">NAMA BAGIAN</font></strong></th>
 		<td width="250" align="center"><strong><font color="'.$warnatext.'">Dalam Daerah</font></strong></th>
 		<td width="250" align="center"><strong><font color="'.$warnatext.'">Luar Daerah</font></strong></th>
 		</tr>

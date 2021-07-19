@@ -291,6 +291,10 @@ require("../../inc/js/swap.js");
 		<input name="btnBTL" type="submit" value="RESET" class="btn btn-info">
 		</p>
 		
+		<hr>
+		
+		<a href="pegawai_xls.php" target="_blank" title="Print Rekap XLS" class="btn btn-danger"><img src="'.$sumber.'/img/xls.gif" width="16" height="16" border="0">REKAP XLS</a>
+		
 		<div class="table-responsive">          
 		<table class="table" border="1">
 		<thead>
@@ -348,7 +352,6 @@ require("../../inc/js/swap.js");
 		
 				$nomer = $nomer + 1;
 				$kd = nosql($data['kd']);
-
 				$e_kd = balikin($data['kd']);
 				$e_pegkd = balikin($data['peg_kd']);
 				$e_nip = balikin($data['nip']);
