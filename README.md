@@ -171,11 +171,22 @@ INSTALASI DAN KONFIGURASI :
 
 ---
 
-AKSES ADMIN :
+CONTOH AKSES USER ADMIN :
 
 User : admin  
 
 Pass : admin
+
+
+
+
+---
+
+CONTOH AKSES USER PEGAWAI :
+
+User : 111222333
+
+Pass : 111222333
 
 
 

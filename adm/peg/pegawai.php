@@ -389,8 +389,8 @@ if ($_POST['btnBTL'])
 
 
 
-//jika edit
-if ($s == "edit")
+//jika edit atau map
+if (($s == "edit") OR ($s == "map"))
 	{
 	$kdx = nosql($_REQUEST['kd']);
 
@@ -940,6 +940,256 @@ if (($s == "baru") OR ($s == "edit"))
 	}
 
 
+
+//jika map terakhir
+else if ($s == "map")
+	{
+	echo '<form action="'.$filenya.'" method="post" name="formx2">
+	<div class="row">
+		<div class="col-md-4">
+		
+			<h3>MAP TERAKHIR</h3>
+			<hr>
+	
+			<p>
+			NIP : 
+			<br>
+			<b>'.$e_nip.'</b>
+			</p>
+			<br>
+			
+	
+			<p>
+			NAMA : 
+			<br>
+			<b>'.$e_nama.'</b>
+			</p>
+			
+		</div>
+		
+		
+		<div class="col-md-8">';
+		
+		
+		
+				
+		//isi *START
+		ob_start();
+		
+		
+		//ketahui ordernya...
+		$qyuk = mysqli_query($koneksi, "SELECT DISTINCT(pegawai_nip) AS kodeku ".
+								"FROM user_history_gps ".
+								"WHERE pegawai_nip = '$e_nip' ".
+								"AND lat_x <> '' ". 
+								"ORDER BY postdate DESC LIMIT 0,1");
+		$ryuk = mysqli_fetch_assoc($qyuk);
+		
+		
+		do
+			{
+			//nilai
+			$yuk_nrp = balikin($ryuk['kodeku']);
+			
+			
+			//detailnya
+			$qyuk2 = mysqli_query($koneksi, "SELECT * FROM user_history_gps ".
+								"WHERE lat_x <> '' ".
+								"AND pegawai_nip = '$e_nip' ". 
+								"ORDER BY postdate DESC LIMIT 0,1");
+			$ryuk2 = mysqli_fetch_assoc($qyuk2);
+			$yuk2_latx = balikin($ryuk2['lat_x']);
+			$yuk2_laty = balikin($ryuk2['lat_y']);
+			$yuk2_nama = balikin($ryuk2['pegawai_nama']);
+				
+			
+			
+			echo "['$yuk_nrp, $yuk2_nama', $yuk2_latx,$yuk2_laty],";
+			}
+		while ($ryuk = mysqli_fetch_assoc($qyuk));
+		
+		
+		
+		//isi
+		$isi_gps2 = ob_get_contents();
+		ob_end_clean();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//isi *START
+		ob_start();
+		
+		
+		//ketahui ordernya...
+		$qyuk = mysqli_query($koneksi, "SELECT DISTINCT(pegawai_nip) AS kodeku ".
+								"FROM user_history_gps ".
+								"WHERE pegawai_nip = '$e_nip' ".
+								"AND lat_x <> '' ". 
+								"ORDER BY postdate DESC LIMIT 0,1");
+		$ryuk = mysqli_fetch_assoc($qyuk);
+		
+		
+		do
+			{
+			//nilai
+			$yuk_nrp = balikin($ryuk['kodeku']);
+			
+			
+			//detailnya
+			$qyuk2 = mysqli_query($koneksi, "SELECT * FROM user_history_gps ".
+								"WHERE lat_x <> '' ".
+								"AND pegawai_nip = '$e_nip' ". 
+								"ORDER BY postdate DESC LIMIT 0,1");
+			$ryuk2 = mysqli_fetch_assoc($qyuk2);
+			$yuk2_latx = balikin($ryuk2['lat_x']);
+			$yuk2_laty = balikin($ryuk2['lat_y']);
+			$yuk2_postdate = balikin($ryuk2['postdate']);
+			$yuk2_nama = balikin($ryuk2['pegawai_nama']);
+				
+			
+		
+		
+			echo "['<div class=\"info_content\">' +
+		        '<h3>$yuk2_nama</h3>' +
+		        '<p>$yuk_nrp. $yuk2_nama</p>' +
+		        '<p>$yuk2_postdate</p>' +        
+		        '</div>'],";	
+			}
+		while ($ryuk = mysqli_fetch_assoc($qyuk));
+		
+		
+		
+		//isi
+		$isi_gps3 = ob_get_contents();
+		ob_end_clean();
+		
+		
+		
+		
+
+
+
+
+
+
+
+		
+		?>
+		
+		
+					
+			<style>
+				#map_wrapper {
+			    height: 400px;
+			}
+			
+			#map_canvas {
+			    width: 100%;
+			    height: 100%;
+			}
+			</style>
+			
+			
+			<div id="map_wrapper">
+			    <div id="map_canvas" class="mapping"></div>
+			</div>
+			
+			
+			
+			
+			<script>
+				jQuery(function($) {
+			    // Asynchronously Load the map API 
+			    var script = document.createElement('script');
+			    script.src = "//maps.googleapis.com/maps/api/js?key=<?php echo $keyku;?>&sensor=false&callback=initialize";
+			    document.body.appendChild(script);
+			});
+			
+			function initialize() {
+			    var map;
+			    var bounds = new google.maps.LatLngBounds();
+			    var mapOptions = {
+			        mapTypeId: 'roadmap'
+			    };
+			                    
+			    // Display a map on the page
+			    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+			    map.setTilt(45);
+			        
+			    // Multiple Markers
+			    var markers = [<?php echo $isi_gps2;?>];
+			                        
+			    // Info Window Content
+			    var infoWindowContent = [<?php echo $isi_gps3;?>
+			    ];
+			        
+			    // Display multiple markers on a map
+			    var infoWindow = new google.maps.InfoWindow(), marker, i;
+			    
+			    // Loop through our array of markers & place each one on the map  
+			    for( i = 0; i < markers.length; i++ ) {
+			        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+			        bounds.extend(position);
+			        marker = new google.maps.Marker({
+			            position: position,
+			            map: map,
+			            title: markers[i][0]
+			        });
+			        
+			        // Allow each marker to have an info window    
+			        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			            return function() {
+			                infoWindow.setContent(infoWindowContent[i][0]);
+			                infoWindow.open(map, marker);
+			            }
+			        })(marker, i));
+			
+			        // Automatically center the map fitting all markers on the screen
+			        map.fitBounds(bounds);
+			    }
+			
+			    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+			    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+			        this.setZoom(14);
+			        google.maps.event.removeListener(boundsListener);
+			    });
+			    
+			}
+			</script>
+			     
+			
+
+		<?php
+		echo '</div>
+		
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<hr>
+
+			
+			<a href="'.$filenya.'" class="btn btn-info">DAFTAR PEGAWAI LAINNYA >></a>
+
+			
+		
+		</div>
+	</div>
+	
+	</form>';
+	}
+
+
+
+
 //jika import
 else if ($s == "import")
 	{
@@ -1138,6 +1388,11 @@ else
 				'.$e_nama.'
 				<br>
 				<a href="'.$filenya.'?s=reset&kd='.$e_kd.'" class="btn btn-primary">RESET PASSWORD >></a>
+				
+				
+				<br>
+				<br>
+				<a href="'.$filenya.'?s=map&kd='.$e_kd.'" class="btn btn-danger">MAP TERAKHIR >></a>
 				</td>
 				<td>'.$i_pnsya.'</td>
 				<td>'.$i_gol_nama.'</td>

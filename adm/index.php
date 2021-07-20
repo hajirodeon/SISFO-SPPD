@@ -454,13 +454,15 @@ do
 	$yuk2_latx = balikin($ryuk2['lat_x']);
 	$yuk2_laty = balikin($ryuk2['lat_y']);
 	$yuk2_nama = balikin($ryuk2['pegawai_nama']);
+	$yuk2_postdate = balikin($ryuk2['postdate']);
 		
 	
 
 
 	echo "['<div class=\"info_content\">' +
         '<h3>$yuk2_nama</h3>' +
-        '<p>$yuk_nrp. $yuk2_nama</p>' +        
+        '<p>$yuk_nrp. $yuk2_nama</p>' +
+        '<p>$yuk2_postdate</p>' +        
         '</div>'],";	
 	}
 while ($ryuk = mysqli_fetch_assoc($qyuk));

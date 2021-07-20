@@ -97,6 +97,7 @@ Tipe User :
 
 <select name="e_tipe" id="e_tipe" class="btn btn-warning btn-block" required>
 <option value="" selected></option>
+<option value="tp09">PEGAWAI</option>
 <option value="tp06">ADMINISTRATOR</option>
 </select>
 </p>
