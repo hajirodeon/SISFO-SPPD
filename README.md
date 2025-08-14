@@ -204,4 +204,10 @@ hp/sms/wa : 081-829-88-54
 
 atau email : hajirodeon@gmail.com
 
+---
+
+https://sociabuzz.com/hajirodeon
+
+Teknik khusus nih, bagi kamu2 yg mau support karya2 dan produk2 ku ya 😊😁
+
 
