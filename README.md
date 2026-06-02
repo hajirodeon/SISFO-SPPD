@@ -7,8 +7,16 @@ Cocok untuk kantor - kantor yang membutuhkan pengarsipan surat perintah tugas pe
 
 Dibuat dan dites dengan WebServer XAMPP PHP 7.4 . Pada LinuxMint.
 
+---
 
-[NB.20260602_130630WIB. Sedang disiapkan update baru...]
+NB. Untuk yang terbaru 2026, silahkan bisa kunjungi : 
+
+https://github.com/hajirodeon/SISFO-SPPD-2026
+
+
+
+
+
 
 ---
 
