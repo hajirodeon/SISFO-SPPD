@@ -1,4 +1,4 @@
-# sisfo-SPPD
+# SISFO-SPPD
 
 SISFO-SPPD v1.0 : Sistem Informasi Surat Perintah Perjalanan Dinas. 
 
